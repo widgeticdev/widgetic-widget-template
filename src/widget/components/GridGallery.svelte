@@ -21,11 +21,11 @@ export let wHeight;
 //
 export let skin;
 export let content;
+//
 export let layout;
 //
 export let itemClicked;
 export let disabled;
-export let totalVotersNo;
 export let contentDiv;
 
 // elements references
@@ -60,14 +60,6 @@ function allItemsNoText(pContent) {
   return true;
 }
 
-function allItemsNoVotes(pContent) {
-  for(let i = 0; i < pContent.length; i++) {
-    // console.log("allItemsNoVotes item text:", pContent[i].noVotes == undefined);
-    if(pContent[i].noVotes != undefined && pContent[i].noVotes != '') return false;
-  }
-
-  return true;
-}
 
 function onItemClick(event) {
   // console.log("gallery onItemClick:", event);
@@ -81,9 +73,12 @@ function onItemClick(event) {
 
 <Style css="{`
   .content-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(${allItemsNoText(content) && allItemsNoVotes(content) ? 40 : 126}px, 1fr));
+    display: ${layout == "grid" ? 'grid' : 'flex'};
+
+    grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
     grid-gap: ${skin.itemsPadding}px;
+
+    flex-direction: column;
 
     overflow: hidden;
   }
@@ -177,19 +172,12 @@ function onItemClick(event) {
                 pointer-events:  {itemClicked || disabled ? 'none' : 'auto'};"
          on:click="{(event) => onItemClick(item)}">
 
-      <div class="emoji-level"
-           style="top:    {layout == "adaptive" ? 0 : (100 - (itemClicked ? Math.round((item.noVotes * 100) / totalVotersNo) : 0))}%;
-                  width:  {layout == "adaptive" ? (itemClicked ? Math.round((item.noVotes * 100) / totalVotersNo) : 0) : 100}%;
-                  height: {layout != "adaptive" ? (itemClicked ? Math.round((item.noVotes * 100) / totalVotersNo) : 0) : 100}%;
-                  background-color: {item.currentVote ? skin.votesSecondaryColor : skin.votesPrimaryColor};"></div>
-
       {#if item.emojiIcon}
       <img class="emoji-icon" alt="" src="{item.emojiIcon}"/>
       {/if}
 
       <div class="emoji-text-ct" style="display: {!item.buttonText && !item.noVotes ? 'none' : 'block'}">
         <div class="emoji-text" style="display: {item.buttonText && skin.displayLabel ? 'block' : 'none'}">{@html item.buttonText || ""}</div>
-        <div class="emoji-percent" style="display: {item.noVotes && itemClicked && !isNaN(item.noVotes) && totalVotersNo ? 'block' : 'none'}">{skin.displayPercentage ? Math.round((item.noVotes * 100) / totalVotersNo) + '%' : item.noVotes}</div>
       </div>
 
       <div class="emoji-stroke"></div>
