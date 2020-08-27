@@ -18,6 +18,7 @@ import GridGallery from ".././components/GridGallery.svelte";
 // properties from outside
 export let skin;
 export let content;
+//
 export let layout;
 export let disabled;
 

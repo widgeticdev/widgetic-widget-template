@@ -15,6 +15,7 @@ import GridGallery from ".././components/GridGallery.svelte";
 // properties from outside
 export let skin;
 export let content;
+//
 export let layout;
 export let disabled;
 
@@ -155,14 +156,6 @@ export function cHeight() {
 
   .emoji-text-ct {
     margin-left: 10px;
-  }
-
-  .vote-status {
-    margin-top: ${listOpen && content.length ? elementsPadding : 0}px !important;
-    height: ${listOpen ? 'auto' : '0px'};
-    overflow: hidden;
-    opacity: ${listOpen ? 1 : 0};
-    transition: all 250ms ease;
   }
 `}">
 </Style>

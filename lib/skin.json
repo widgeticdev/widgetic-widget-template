@@ -7,15 +7,15 @@
         "options": {
           "label": "Layout",
           "help_text": "Select the desired layout for your poll.",
-          "default": "cards",
+          "default": "grid",
           "options": [
             {
-              "label": "Cards",
-              "value": "cards"
+              "label": "Grid",
+              "value": "grid"
             },
             {
-              "label": "Slider",
-              "value": "slider"
+              "label": "Adaptive",
+              "value": "adaptive"
             }
           ]
         }

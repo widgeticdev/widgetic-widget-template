@@ -8,7 +8,7 @@
     "borderSize": 5,
     "borderRadius": 5,
 
-    "layout": "cards",
+    "layout": "grid",
     "widgetPadding": 10,
     "elementsPadding": 15,
     "displayVotesNumber": true,
@@ -43,7 +43,7 @@
     "borderSize": 5,
     "borderRadius": 0,
 
-    "layout": "slider",
+    "layout": "adaptive",
     "widgetPadding": 20,
     "elementsPadding": 15,
     "displayVotesNumber": true,
