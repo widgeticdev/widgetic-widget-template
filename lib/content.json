@@ -1,0 +1,94 @@
+{
+  "options": {
+    "max": 1000,
+    "min": 1,
+    "notification": {
+      "min": "Please add at least one item!",
+      "max": "You reached the maximum number of items."
+    },
+    "mainAttribute": "buttonText",
+    "preview": "core/controls"
+  },
+  "input": {
+    "attribute": "buttonText",
+    "control": "core/controls/text",
+    "options": {
+      "label": "",
+      "placeholder": "Add vote option here"
+    }
+  },
+  "bulkEditor": {
+    "title": "Widget Details",
+    "help_text": "Enter your question here.",
+    "attributes": [
+      "titleText"
+    ]
+  },
+  "attributes": {
+    "buttonText": {
+      "control": "core/controls/text",
+      "options": {
+        "label": "",
+        "placeholder": "Add vote option here"
+      }
+    },
+    "emojiIcon": {
+      "control": "core/controls/dropdown",
+      "options": {
+        "label": "Emoji Icon",
+        "help_text": "Add an emoji to the vote option.",
+        "default": "",
+        "options": [
+          {
+            "label": "Empty",
+            "value": ""
+          },
+          {
+            "label": "Angry",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_11_angry.svg"
+          },
+          {
+            "label": "Broken",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_16_broken.svg"
+          },
+          {
+            "label": "Grinning Eyes",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_08_grinning_and_smile_eyes.svg"
+          },
+          {
+            "label": "Halo Smiling",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_30_halo_smile.svg"
+          },
+          {
+            "label": "Happy",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_03_happy.svg"
+          },
+          {
+            "label": "Joy Tears",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_06_joy_tears.svg"
+          },
+          {
+            "label": "Neutral",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_07_neutral.svg"
+          },
+          {
+            "label": "Surprised",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_26_surprised.svg"
+          },
+          {
+            "label": "Winkle Tongue",
+            "value": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_01_winkle_and_tongue.svg"
+          }
+        ]
+      }
+    },
+    "titleText": {
+      "control": "core/controls/text",
+      "options": {
+        "label": "Title",
+        "placeholder": "Add your title here",
+        "editable": false
+      }
+    }
+  }
+}

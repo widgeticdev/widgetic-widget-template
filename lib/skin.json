@@ -1,0 +1,187 @@
+{
+  "colorAttributes": ["backgroundColor", "textFillColor, linkFillColor"],
+  "tabs": {
+    "Interface": {
+      "layout": {
+        "control": "core/controls/dropdown",
+        "options": {
+          "label": "Layout",
+          "help_text": "Select the desired layout for your poll.",
+          "default": "grid",
+          "options": [
+            {
+              "label": "Grid",
+              "value": "grid"
+            },
+            {
+              "label": "Adaptive",
+              "value": "adaptive"
+            }
+          ]
+        }
+      },
+      "backgroundColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color and transparency for the widget's background.",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        }
+      },
+      "borderSize": {
+        "control": "core/controls/stepper",
+        "options": {
+          "help_text": "Set the border thickness.",
+          "label": "Border Thickness",
+          "default": 0,
+          "unit": " px",
+          "min": 0,
+          "max": 100
+        }
+      },
+      "borderRadius": {
+        "control": "core/controls/stepper",
+        "options": {
+          "help_text": "Set the radius of the border.",
+          "label": "Border Radius",
+          "default": 0,
+          "unit": " px",
+          "min": 0,
+          "max": 100
+        }
+      },
+      "borderColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color and transparency for the widget's border.",
+          "label": "Border Color",
+          "default": "#FFFFFF"
+        }
+      },
+      "widgetPadding": {
+        "control": "core/controls/stepper",
+        "options": {
+          "help_text": "Set the padding of the widget.",
+          "label": "Padding",
+          "default": 3,
+          "unit": " px",
+          "min": 0,
+          "max": 300
+        }
+      },
+      "elementsPadding": {
+        "control": "core/controls/stepper",
+        "options": {
+          "help_text": "Set the distance between the text and the cards.",
+          "label": "Elements Padding",
+          "default": 3,
+          "unit": " px",
+          "min": 0,
+          "max": 300
+        }
+      },
+      "textFont": {
+        "control": "core/controls/font",
+        "options": {
+          "label": "Text Font Style",
+          "help_text": "Set the text style.",
+          "family": "Roboto",
+          "style": "regular",
+          "size": {
+            "default": 20,
+            "unit": " px",
+            "min": 8,
+            "max": 100
+          },
+          "default": {
+            "family": "Roboto",
+            "style": "100",
+            "size": 20,
+            "source": "google",
+            "category": "sans-serif"
+          }
+        }
+      },
+      "textColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color and transparency for the text.",
+          "label": "Text Color",
+          "default": "#FFFFFF"
+        }
+      }
+    },
+    "Card": {
+      "itemsPadding": {
+        "control": "core/controls/stepper",
+        "options": {
+          "help_text": "Set the distance between any two cards.",
+          "label": "Cards Padding",
+          "default": 3,
+          "unit": " px",
+          "min": 0,
+          "max": 25
+        }
+      },
+      "displayLabel": {
+        "control": "core/controls/toggle",
+        "options": {
+          "help_text": "If on, the emoji labels are displayed.",
+          "label": "Display Label",
+          "default": true
+        }
+      },
+      "itemTextColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color for the card's text.",
+          "label": "Text Color",
+          "default": "#c9cdcf"
+        }
+      },
+      "itemFillColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color for the card's fill.",
+          "label": "Fill Color",
+          "default": "#c9cdcf"
+        }
+      },
+      "itemFillHoverColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color for the card's fill, on mouse hover.",
+          "label": "Fill Hover Color",
+          "default": "#c9cdcf"
+        }
+      },
+      "itemStrokeSize": {
+        "control": "core/controls/stepper",
+        "options": {
+          "help_text": "Select the thickness for the card's stroke.",
+          "label": "Stroke Thickness",
+          "default": 2,
+          "unit": " px",
+          "min": 0,
+          "max": 100
+        }
+      },
+      "itemStrokeColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color for the card's stroke.",
+          "label": "Stroke Color",
+          "default": "#c9cdcf"
+        }
+      },
+      "itemStrokeHoverColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color for the card's stroke, on mouse hover.",
+          "label": "Stroke Hover Color",
+          "default": "#c9cdcf"
+        }
+      }
+    }
+  }
+}
