@@ -50,6 +50,14 @@
           "max": 100
         }
       },
+      "borderColor": {
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color and transparency for the widget's border.",
+          "label": "Border Color",
+          "default": "#FFFFFF"
+        }
+      },
       "widgetPadding": {
         "control": "core/controls/stepper",
         "options": {
@@ -101,14 +109,6 @@
           "label": "Text Color",
           "default": "#FFFFFF"
         }
-      },
-      "displayVotesNumber": {
-        "control": "core/controls/toggle",
-        "options": {
-          "help_text": "If true, the votes number is displayed.",
-          "label": "Display Votes",
-          "default": false
-        }
       }
     },
     "Card": {
@@ -129,14 +129,6 @@
           "help_text": "If on, the emoji labels are displayed.",
           "label": "Display Label",
           "default": true
-        }
-      },
-      "displayPercentage": {
-        "control": "core/controls/toggle",
-        "options": {
-          "help_text": "If true, the votes are displayed as percentage.",
-          "label": "Display Percentage",
-          "default": false
         }
       },
       "itemTextColor": {
@@ -187,22 +179,6 @@
         "options": {
           "help_text": "Select the color for the card's stroke, on mouse hover.",
           "label": "Stroke Hover Color",
-          "default": "#c9cdcf"
-        }
-      },
-      "votesPrimaryColor": {
-        "control": "core/controls/color",
-        "options": {
-          "help_text": "Select the color of votes level.",
-          "label": "Votes Color",
-          "default": "#c9cdcf"
-        }
-      },
-      "votesSecondaryColor": {
-        "control": "core/controls/color",
-        "options": {
-          "help_text": "Select the color of voted card level.",
-          "label": "Voted Color",
           "default": "#c9cdcf"
         }
       }

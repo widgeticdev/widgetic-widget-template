@@ -120,6 +120,7 @@ function onItemClick(event) {
     bottom: 0;
     box-sizing: border-box;
     pointer-events: none;
+    border: ${skin.itemStrokeSize}px solid ${skin.itemStrokeColor};
   }
 
   .emoji-icon {
