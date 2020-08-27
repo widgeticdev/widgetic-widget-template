@@ -18,10 +18,16 @@
     }
   },
   "bulkEditor": {
-    "title": "Widget Details",
+    "title": "Poll Details",
     "help_text": "Enter your question here.",
     "attributes": [
-      "titleText"
+      "titleText",
+      "voteMajorityStatusText",
+      "voteMinorityStatusText",
+      "voteDeadlineTime",
+      "voteClosedStatusText",
+      "noVotersSingular",
+      "noVotersPlural"
     ]
   },
   "attributes": {
@@ -85,8 +91,58 @@
     "titleText": {
       "control": "core/controls/text",
       "options": {
-        "label": "Title",
-        "placeholder": "Add your title here",
+        "label": "Question",
+        "placeholder": "Add your question here",
+        "editable": false
+      }
+    },
+    "voteMajorityStatusText": {
+      "control": "core/controls/text",
+      "options": {
+        "label": "Voted Majority",
+        "placeholder": "Add a summary to display when voting the same as the majority.",
+        "editable": false
+      }
+    },
+    "voteMinorityStatusText": {
+      "control": "core/controls/text",
+      "options": {
+        "label": "Voted Minority",
+        "placeholder": "Add a summary to display when not voting the same as the majority.",
+        "editable": false
+      }
+    },
+    "noVotersSingular": {
+      "control": "core/controls/text",
+      "options": {
+        "label": "Vote",
+        "placeholder": "Add word for vote singular",
+        "editable": false
+      }
+    },
+    "noVotersPlural": {
+      "control": "core/controls/text",
+      "options": {
+        "label": "Votes",
+        "placeholder": "Add word for vote plural",
+        "editable": false
+      }
+    },
+    "voteDeadlineTime": {
+      "control": "core/controls/date-time",
+      "options": {
+        "placeholder": "Add a date",
+        "help_text": "Select the date and time when voting is closed.",
+        "format": "Y/m/d H:i",
+        "label": "Vote Deadline",
+        "editable": false
+      }
+    },
+    "voteClosedStatusText": {
+      "control": "core/controls/text",
+      "options": {
+        "label": "Vote Closed",
+        "placeholder": "Add a summary to display when voting is closed.",
         "editable": false
       }
     }

@@ -7,20 +7,23 @@
     "backgroundColor": "rgb(255, 255, 255)",
     "borderSize": 5,
     "borderRadius": 5,
-    "borderColor": "rgb(255, 255, 255)",
 
-    "layout": "grid",
+    "layout": "cards",
     "widgetPadding": 10,
     "elementsPadding": 15,
+    "displayVotesNumber": true,
 
     "itemsPadding": 4,
     "displayLabel": true,
+    "displayPercentage": true,
     "itemTextColor": "#333333",
     "itemFillColor": "rgb(244,245,245)",
-    "itemStrokeColor": "#c9cddd",
+    "itemStrokeColor": "rgb(244,245,245)",
     "itemStrokeSize": 2,
     "itemFillHoverColor": "#dbffe6",
     "itemStrokeHoverColor": "#35e66c",
+    "votesPrimaryColor": "#c9cdcf",
+    "votesSecondaryColor": "#35e66c",
 
     "textFont": {
       "family": "Lato",
@@ -39,20 +42,23 @@
     "backgroundColor": "rgb(255, 244, 255)",
     "borderSize": 5,
     "borderRadius": 0,
-    "borderColor": "rgb(255, 255, 255)",
 
-    "layout": "adaptive",
+    "layout": "slider",
     "widgetPadding": 20,
     "elementsPadding": 15,
+    "displayVotesNumber": true,
 
     "itemsPadding": 4,
     "displayLabel": true,
+    "displayPercentage": false,
     "itemTextColor": "#333333",
     "itemFillColor": "#c9cdcf",
-    "itemStrokeColor": "#c9cddd",
+    "itemStrokeColor": "#c9cdcf",
     "itemStrokeSize": 2,
     "itemFillHoverColor": "#dbffe6",
     "itemStrokeHoverColor": "#35e66c",
+    "votesPrimaryColor": "#c9cdcf",
+    "votesSecondaryColor": "#35e66c",
 
     "textFont": {
       "family": "Lato",
