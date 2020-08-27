@@ -2,34 +2,28 @@
   {
     "content": [
       {
-        "titleText": "How do you feel about the level of social distancing in your physical workplace?",
-        "voteMajorityStatusText": "Great, you are with the majority!",
-        "voteMinorityStatusText": "Great, here’s what others think.",
-        "noVotersSingular": "vote",
-        "noVotersPlural": "votes",
-        "voteDeadlineTime": "2020/9/30 1:30",
-        "voteClosedStatusText": "Voting is closed.",
+        "titleText": "YOUR TITLE HERE",
         "id": "c1",
         "order": 1,
-        "buttonText": "Love it",
+        "buttonText": "Item title 1",
         "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg"
       },
       {
         "id": "c2",
         "order": 2,
-        "buttonText": "It's fine",
+        "buttonText": "Item title 2",
         "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg"
       },
       {
         "id": "c3",
         "order": 3,
-        "buttonText": "Upset",
+        "buttonText": "Item title 3",
         "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg"
       },
       {
         "id": "c4",
         "order": 4,
-        "buttonText": "Angry",
+        "buttonText": "Item title 4",
         "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg"
       }
     ]
