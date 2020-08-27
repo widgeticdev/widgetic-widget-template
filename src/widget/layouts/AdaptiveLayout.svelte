@@ -10,7 +10,7 @@ const dispatch = createEventDispatcher();
 import Style from "Components/Style.svelte";
 
 // Widget local components
-// import GridGallery from ".././components/GridGallery.svelte";
+import GridGallery from ".././components/GridGallery.svelte";
 
 // properties from outside
 export let skin;
@@ -44,14 +44,6 @@ function onArrowClick() {
 function onResize(event) {
   // console.log("onResize!", contentDiv.clientHeight);
   contentHeight = listOpen ? contentDiv.clientHeight : 0;
-}
-
-function votedItemOf(content) {
-  for (let i = 0; i < content.length; i++) {
-    // console.log("votedItem:", content[i]);
-    if(content[i].id == votedOptionId) return content[i];
-  }
-  return undefined;
 }
 
 export function cHeight() {
@@ -184,19 +176,11 @@ export function cHeight() {
 
     <div class="arrow-emoji-samples">
 
-      <div class="voted-item-level"
-           style="width: {votedItemPercent ? votedItemPercent : 0}%;">
-      </div>
-
-      {#each (votedItem ? [votedItem] : content.slice(0,3)) as item}
+      {#each content.slice(0,3) as item}
         {#if item.emojiIcon}
         <img class="arrow-emoji emoji-icon" alt="" src="{item.emojiIcon}"/>
         {/if}
       {/each}
-
-      {#if votedItemPercent}
-      <div class="voted-item-percent">{votedItemPercent}%</div>
-      {/if}
 
       <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
         <symbol id="icon-arrow-down" width="284.929px" height="284.929px" viewBox="0 0 284.929 284.929">
@@ -214,17 +198,14 @@ export function cHeight() {
 </div>
 
 <div class="content-holder">
-  <!--
   <GridGallery
   bind:content
   {skin}
   {layout}
   bind:contentDiv
   bind:disabled
-  bind:totalVotersNo
   on:itemClick={(event) => {
     dispatch('resize');
     dispatch('itemClick', event.detail);
   }}/>
-  -->
 </div>
