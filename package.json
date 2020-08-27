@@ -37,7 +37,7 @@
     "@widgetic/sdk": "^1.6.4",
     "@widgetic/spine": "^2.1.1",
     "@widgetic/tools": "^1.0.0",
-    "@widgetic/workbench": "^2.2.2",
+    "@widgetic/workbench": "^2.2.3",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
