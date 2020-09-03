@@ -48,8 +48,8 @@ export function cHeight() {
   // console.log("cHeight");
   return headerDiv ? (
     headerDiv.clientHeight +
-    (content.length ? elementsPadding  + contentDiv.clientHeight : 0) +
-    ((statusDiv.clientHeight > 0 ? elementsPadding : 0) + statusDiv.clientHeight)
+    (content.length ? (elementsPadding + (contentDiv ? contentDiv.clientHeight:0)) : 0) +
+    ((statusDiv && statusDiv.clientHeight ? elementsPadding : 0) + (statusDiv && statusDiv.clientHeight ? statusDiv.clientHeight : 0))
   ) : 0;
 }
 

@@ -225,11 +225,12 @@ function onResize(event) {
 
     // calculate the widget height
     let widgetHeight = 2 * widgetPadding +
-                      //  (mainComponent && mainComponent.cHeight ? mainComponent.cHeight() : 0) +
+                       (mainComponent && mainComponent.cHeight ? mainComponent.cHeight() : 0) +
                        2 * borderSize;
     // console.log("WIDGET RESIZE:", event, widgetHeight);
 
     // set autoscale height
+    // console.log("container.Autoscale:", widgetHeight, container.Autoscale);
     if (widgetHeight > 0) container.Autoscale.setHeight(widgetHeight);
   }, 120);
 }
