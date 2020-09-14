@@ -24,14 +24,7 @@ module.exports = {
           fallback: 'style-loader',
           use: ['css-loader'],
         }),
-      },
-      {
-        test: /\.(html|js)$/,
-        exclude: /node_modules\/(?!@widgetic|svelte)/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
+      }
     ],
   },
   resolve: {
