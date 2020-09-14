@@ -1,11 +1,7 @@
 import { config } from 'Services/container';
 import FontService from 'Services/fonts';
-import AutoscaleService from 'Services/autoscale';
-import AdaptiveService from 'Services/adaptive';
 
 config.service('Fonts', FontService, 'Skin');
-config.service('Autoscale', AutoscaleService, 'autoscale');
-config.service('Adaptive', AdaptiveService, 'adaptive');
 
 // define the declarative map of properties for dynamic content
 config.constant('declarativeMap', {
