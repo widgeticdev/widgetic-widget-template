@@ -1,0 +1,521 @@
+{
+  "compositions": [
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_UFqbEtdFJ"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_UFqbEtdFJ"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_UFqbEtdFJ"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_UFqbEtdFJ"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_UFqbEtdFJ",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_rMJX13tHs"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_rMJX13tHs"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_rMJX13tHs"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_rMJX13tHs"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_rMJX13tHs",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_02SduRMUr"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_02SduRMUr"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_02SduRMUr"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_02SduRMUr"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_02SduRMUr",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_MVZFpGDtQ"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_MVZFpGDtQ"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_MVZFpGDtQ"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_MVZFpGDtQ"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_MVZFpGDtQ",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_7F9txKtSs"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_7F9txKtSs"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_7F9txKtSs"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_7F9txKtSs"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_7F9txKtSs",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_y4_woWjHP"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_y4_woWjHP"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_y4_woWjHP"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_y4_woWjHP"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_y4_woWjHP",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_VHg0to8Gu"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_VHg0to8Gu"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_VHg0to8Gu"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_VHg0to8Gu"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_VHg0to8Gu",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_VYipAXrQI"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_VYipAXrQI"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_VYipAXrQI"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_VYipAXrQI"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_VYipAXrQI",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_fAtwwcgTq"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_fAtwwcgTq"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_fAtwwcgTq"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_fAtwwcgTq"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_fAtwwcgTq",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_dvYAMEV0V"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_dvYAMEV0V"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_dvYAMEV0V"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_dvYAMEV0V"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_dvYAMEV0V",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_QRmllYlB0"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_QRmllYlB0"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_QRmllYlB0"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_QRmllYlB0"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_QRmllYlB0",
+      "user_id": "mock-user"
+    },
+    {
+      "name": "Composition",
+      "widget_id": "widget",
+      "edit_mode": true,
+      "skin_id": "p1",
+      "content": [
+        {
+          "titleText": "YOUR TITLE HERE",
+          "id": "c1",
+          "order": 1,
+          "buttonText": "Item title 1",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg",
+          "composition_id": "workbench_SiyYAO2uI"
+        },
+        {
+          "id": "c2",
+          "order": 2,
+          "buttonText": "Item title 2",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg",
+          "composition_id": "workbench_SiyYAO2uI"
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "buttonText": "Item title 3",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg",
+          "composition_id": "workbench_SiyYAO2uI"
+        },
+        {
+          "id": "c4",
+          "order": 4,
+          "buttonText": "Item title 4",
+          "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg",
+          "composition_id": "workbench_SiyYAO2uI"
+        }
+      ],
+      "width": 550,
+      "height": 568,
+      "autoscale": false,
+      "adaptive": 414,
+      "id": "workbench_SiyYAO2uI",
+      "user_id": "mock-user"
+    }
+  ],
+  "skins": []
+}
