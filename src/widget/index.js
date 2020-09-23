@@ -1,7 +1,4 @@
 import { config } from 'Services/container';
-import FontService from 'Services/fonts';
-
-config.service('Fonts', FontService, 'Skin');
 
 // define the declarative map of properties for dynamic content
 config.constant('declarativeMap', {
