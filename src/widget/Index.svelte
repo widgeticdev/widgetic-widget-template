@@ -1,29 +1,29 @@
-<svelte:window bind:innerWidth={wWidth} bind:innerHeight={wHeight} on:resize={() => onResize('widget')}/>
-
 <!-- WIDGET JAVASCRIPT -->
 <script>
 // SVELTE imports
 import { onMount } from 'svelte';
 import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
-import { fade } from "svelte-transitions";  
+import { fade } from "svelte-transitions";
 
-// THIRDPARTY imports
+// THIRD PARTY imports
 
-// Widgetic Services
+// WIDGETIC Services
 import container from "Services/container";
 
-// Widgetic Components
+// WIDGETIC Components
 import Style from "Components/Style.svelte";
 import DotsLoader from "Components/DotsLoader.svelte";
 
-// Widget local components
+// WIDGET local components
 // import GridGallery from "./GridGallery.svelte";
 
-// properties from outside
+/* WIDGET PROPERTIES */
+// dimensions
 export let wWidth;
 export let wHeight;
-//
+
+// skin and content
 export let skin;
 export let content;
 
@@ -33,9 +33,13 @@ let fontsCss;
 // elements references
 let mainComponent;
 
-/* Layouts */
+/* WIDGET LAYOUTS */
+// default layout for small screens
 import AdaptiveLayout from "./layouts/AdaptiveLayout.svelte";
+
+// your layouts
 import GridLayout     from "./layouts/GridLayout.svelte";
+
 const layoutMap = {
   adaptive: AdaptiveLayout,
   grid: GridLayout
@@ -322,6 +326,8 @@ export function isAutoscalable() {
 </Style>
 
 <!--WIDGET HTML TEMPLATE-->
+<svelte:window bind:innerWidth={wWidth} bind:innerHeight={wHeight} on:resize={() => onResize('widget')}/>
+
 <div class="widget-root">
   
   <!-- LAYOUT component-->
