@@ -4,11 +4,10 @@ const packageInfo = require('./package.json');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/widget/index.js',
+  entry: './src/index.js',
   output: {
     filename: 'widget.js',
-    path: path.resolve(__dirname, 'lib'),
-    publicPath: '/widget/',
+    path: path.resolve(__dirname, 'lib')
   },
   context: __dirname,
   module: {
