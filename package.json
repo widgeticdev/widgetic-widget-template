@@ -9,33 +9,32 @@
     "start": "node server/server.js",
     "build-dev": "webpack --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js",
-    "stats": "webpack --config webpack.config.dev.js --profile --json > stats.json",
     "validate": "widgetic-tools validate lib",
     "version": "npm run validate && npm run build && git add -A lib",
     "postversion": "git push"
   },
   "dependencies": {
     "@widgetic/components": "^10.0.1",
-    "@widgetic/editor": "^3.9.4",
-    "@widgetic/sdk": "^1.6.4",
+    
     "@widgetic/workbench": "^2.2.5",
-    "css-loader": "^0.28.7",
-    "debounce": "^1.2.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "geval": "^2.2.0",
-    "lowdb": "^1.0.0",
-    "prettier": "^2.0.5",
-    "prettier-plugin-svelte": "^1.1.0",
-    "style-loader": "^0.18.2",
+    "@widgetic/editor": "^3.9.4",
+
     "svelte": "^3.25.0",
-    "svelte-extras": "^2.0.2",
-    "svelte-loader": "^2.13.6",
     "svelte-transitions": "^1.2.0",
+    "lowdb": "^1.0.0",
+    
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
-    "webpack-sources": "^1.4.3"
+    "webpack-sources": "^1.4.3",
+
+    "svelte-loader": "^2.13.6",
+    "style-loader": "^0.18.2",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "prettier": "^2.0.5",
+    "prettier-plugin-svelte": "^1.1.0"
   }
 }
