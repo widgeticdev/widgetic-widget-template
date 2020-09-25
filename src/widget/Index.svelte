@@ -9,7 +9,7 @@ import { fade } from "svelte-transitions";
 // THIRD PARTY imports
 import tinycolor from "tinycolor2";
 
-// WIDGETIC Services
+// WIDGETIC Services in container: Fonts, Adaptive, Autoscale
 import container from "Services/container";
 
 // WIDGETIC Components
@@ -36,22 +36,24 @@ import AdaptiveLayout from "./layouts/AdaptiveLayout.svelte";
 import GridLayout     from "./layouts/GridLayout.svelte";
 // import ListLayout     from "./layouts/ListLayout.svelte";
 
-
+// layouts list
+const layoutList = {
+  adaptive: AdaptiveLayout,
+  grid: GridLayout,
+//list: ListLayout
+};
 
 // current selected layout
-$:layout = isAdaptive ? "adaptive" : (skin.layout ? skin.layout : "grid");
+$:layout = isAdaptive || !skin.layout ? "adaptive" : skin.layout;
 let prevLayout;
-// layouts list
-const layoutMap = {
-  adaptive: AdaptiveLayout,
-  grid: GridLayout
-};
+
 // current selected layout component
-$:layoutComponent = layoutMap[layout];
+$:layoutComponent = layoutList[layout];
 let isAdaptive = false;
 
+
 /*** 
-  REACTIVE(computed) properties 
+  REACTIVE PROPERTIES (computed)
 ***/
 
 // widget properties
@@ -90,13 +92,14 @@ let prevContent;
 let prevContentCount;
 $:contentCount = content.length;
 
-// fonts css
+// fonts css object
 let fontsCss;
 
 // dom elements references
 let mainComponent;
 
-/* WIDGET ON UPDATE */
+
+/* WIDGET ON PROPERTIES UPDATE */
 $: {
   // resize mainComponent when title, font, content, border or padding changes
   if(prevLayout != layout ||
@@ -132,16 +135,14 @@ $: {
 onMount(async () => {
   // read fonts from the container
   container.Fonts.updates.listen(css => {
-    fontsCss = css;
-    // console.log("FONTS updated:", fontsCss);
+    fontsCss = css; // console.log("FONTS updated:", fontsCss);
   });
 
   // read adaptive from the container
   // console.log("Widget onMount adaptive value:", container.adaptive);
   isAdaptive = container.Adaptive.isOnAdaptive;
   container.Adaptive.updates.listen(isOnAdaptive => {
-    // console.log("isOnAdaptive:", isOnAdaptive)
-    isAdaptive = isOnAdaptive;
+    isAdaptive = isOnAdaptive; // console.log("isOnAdaptive:", isOnAdaptive)
   });
 
   // read data(facts) for current composition
