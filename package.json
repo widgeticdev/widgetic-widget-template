@@ -17,10 +17,11 @@
     "@widgetic/components": "^10.0.1",
     
     "@widgetic/workbench": "^2.2.5",
-    "@widgetic/editor": "^3.9.4",
+    "@widgetic/editor": "^3.9.6",
 
     "svelte": "^3.25.0",
     "svelte-transitions": "^1.2.0",
+    
     "lowdb": "^1.0.0",
     
     "webpack": "^4.41.4",
