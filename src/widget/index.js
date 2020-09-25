@@ -1,13 +1,6 @@
 import WidgetBase from '@widgetic/components/widget';
 import MainComponent from './Index.svelte';
 
-// define the declarative map of properties for dynamic content
-import { config } from 'Services/container';
-config.constant('declarativeMap', {
-  image: 'src',
-  imageDescription: 'alt',
-});
-
 export default class Widget extends WidgetBase {
   getComponent() {
     return MainComponent;
@@ -20,7 +13,7 @@ export default class Widget extends WidgetBase {
 
   // widget's api public events
   getPublicEvents() {
-    return ['init', 'beforeChange', 'afterChange'];
+    return ['event1', 'event2', 'event3'];
   }
 }
 
