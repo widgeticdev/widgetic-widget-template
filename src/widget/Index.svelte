@@ -7,6 +7,7 @@ const dispatch = createEventDispatcher();
 import { fade } from "svelte-transitions";
 
 // THIRD PARTY imports
+import tinycolor from "tinycolor2";
 
 // WIDGETIC Services
 import container from "Services/container";
@@ -15,8 +16,8 @@ import container from "Services/container";
 import Style from "Components/Style.svelte";
 import DotsLoader from "Components/DotsLoader.svelte";
 
-// WIDGET local components
-// import GridGallery from "./GridGallery.svelte";
+// WIDGET local Components
+// import GridGallery from "./components/GridGallery.svelte";
 
 /* WIDGET PROPERTIES */
 // dimensions
@@ -27,29 +28,29 @@ export let wHeight;
 export let skin;
 export let content;
 
-// local properties
-let fontsCss;
-
-// elements references
-let mainComponent;
-
-/* WIDGET LAYOUTS */
-// default layout for small screens
+/* WIDGET LAYOUTS COMPONENTS */
+// adaptive layout - for mobile(mandatory)
 import AdaptiveLayout from "./layouts/AdaptiveLayout.svelte";
 
-// your layouts
+// your layouts - for desktop(at least one)
 import GridLayout     from "./layouts/GridLayout.svelte";
+// import ListLayout     from "./layouts/ListLayout.svelte";
 
+
+/* REACTIVE(computed) properties */
+// current selected layout
+$:layout = isAdaptive ? "adaptive" : (skin.layout ? skin.layout : "grid");
+let prevLayout;
+// layouts list
 const layoutMap = {
   adaptive: AdaptiveLayout,
   grid: GridLayout
 };
-let isAdaptive = false;
-let prevLayout;
-$:layout = isAdaptive ? "adaptive" : (skin.layout ? skin.layout : "grid");
+// current selected layout component
 $:layoutComponent = layoutMap[layout];
+let isAdaptive = false;
 
-/* REACTIVE(computed) properties */
+
 // widget properties
 $:widgetBackgroundColor = skin.backgroundColor ? skin.backgroundColor : 'rgba(255,255,255,1)';
 let prevWidgetPadding;
@@ -86,11 +87,14 @@ let prevContent;
 let prevContentCount;
 $:contentCount = content.length;
 
+// fonts css
+let fontsCss;
+
+// dom elements references
+let mainComponent;
 
 /* WIDGET ON UPDATE */
 $: {
-  // console.log("Widget On update:", content);
-
   // resize mainComponent when title, font, content, border or padding changes
   if(prevLayout != layout ||
     prevContentCount != contentCount ||
@@ -140,17 +144,14 @@ onMount(async () => {
   compositionId = container.metadata && container.metadata.composition ? container.metadata.composition.id : "";
   // console.log("widget onMount compositionId from meta:", compositionId);
 
-  // read data from local storage for the composition id
-  // localStorage.clear();
-  // console.log("Widget onMount localStorage:", localStorage);
-
 
   // read data(facts) for current composition
   readWidgetData();
 });
 
+
 /*
-  WIDGET METHODS
+  WIDGET INTERNAL METHODS
 */
 function readWidgetData() {
   // console.log("readWidgetData");
@@ -239,6 +240,9 @@ function onResize(event) {
   }, 120);
 }
 
+/*
+  WIDGET GENERAL METHODS for EDITOR
+*/
 export function addContent(item) {
   // console.log("Widget MainComponent: item that was added:", item);
 }
@@ -265,7 +269,7 @@ export function on(eventName, handler) {
 }
 
 /*
-  PUBLIC METHODS
+  WIDGET PUBLIC METHODS
 */
 export function publicFunction1(param) {
   console.log("publicFunction1", param)
@@ -325,9 +329,17 @@ export function isAutoscalable() {
 `}">
 </Style>
 
-<!--WIDGET HTML TEMPLATE-->
-<svelte:window bind:innerWidth={wWidth} bind:innerHeight={wHeight} on:resize={() => onResize('widget')}/>
 
+<!--
+  WIDGET HTML TEMPLATE
+-->
+
+<!-- WINDOW ELEMENT -->
+<svelte:window 
+bind:innerWidth={wWidth} bind:innerHeight={wHeight} 
+on:resize={() => onResize('widget')}/>
+
+<!-- WIDGET MAIN HOLDER -->
 <div class="widget-root">
   
   <!-- LAYOUT component-->
@@ -343,6 +355,7 @@ export function isAutoscalable() {
   
 </div>
 
+<!-- WIDGET LOADER -->
 {#if loading}
 <span transition:fade>
   <DotsLoader color={widgetBackgroundColor} />
