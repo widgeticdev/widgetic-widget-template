@@ -37,7 +37,7 @@ import GridLayout     from "./layouts/GridLayout.svelte";
 // import ListLayout     from "./layouts/ListLayout.svelte";
 
 
-/* REACTIVE(computed) properties */
+
 // current selected layout
 $:layout = isAdaptive ? "adaptive" : (skin.layout ? skin.layout : "grid");
 let prevLayout;
@@ -50,6 +50,9 @@ const layoutMap = {
 $:layoutComponent = layoutMap[layout];
 let isAdaptive = false;
 
+/*** 
+  REACTIVE(computed) properties 
+***/
 
 // widget properties
 $:widgetBackgroundColor = skin.backgroundColor ? skin.backgroundColor : 'rgba(255,255,255,1)';
@@ -123,7 +126,9 @@ $: {
 }
 
 
-/* WIDGET MOUNT */
+/*** 
+  WIDGET MOUNT - start point
+ ***/
 onMount(async () => {
   // read fonts from the container
   container.Fonts.updates.listen(css => {
@@ -139,15 +144,28 @@ onMount(async () => {
     isAdaptive = isOnAdaptive;
   });
 
-
-  // read composition id from metadata
-  compositionId = container.metadata && container.metadata.composition ? container.metadata.composition.id : "";
-  // console.log("widget onMount compositionId from meta:", compositionId);
-
-
   // read data(facts) for current composition
   readWidgetData();
 });
+
+/*** 
+  WIDGET ONRESIZE
+ ***/
+function onResize(event) {
+  setTimeout(() => {
+    // console.log("onResize:", event);
+
+    // calculate the widget height
+    let widgetHeight = 2 * widgetPadding +
+                       (mainComponent && mainComponent.cHeight ? mainComponent.cHeight() : 0) +
+                       2 * borderSize;
+    // console.log("WIDGET RESIZE:", event, widgetHeight);
+
+    // set autoscale height
+    // console.log("container.Autoscale:", widgetHeight, container.Autoscale);
+    if (widgetHeight > 0) container.Autoscale.setHeight(widgetHeight);
+  }, 120);
+}
 
 
 /*
@@ -222,22 +240,6 @@ function onItemClick(event) {
   //   (res) => {
   //     console.log("delete the fact:", res);
   //   });
-}
-
-function onResize(event) {
-  setTimeout(() => {
-    // console.log("onResize:", event);
-
-    // calculate the widget height
-    let widgetHeight = 2 * widgetPadding +
-                       (mainComponent && mainComponent.cHeight ? mainComponent.cHeight() : 0) +
-                       2 * borderSize;
-    // console.log("WIDGET RESIZE:", event, widgetHeight);
-
-    // set autoscale height
-    // console.log("container.Autoscale:", widgetHeight, container.Autoscale);
-    if (widgetHeight > 0) container.Autoscale.setHeight(widgetHeight);
-  }, 120);
 }
 
 /*
