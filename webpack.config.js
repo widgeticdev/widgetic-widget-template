@@ -4,8 +4,6 @@ const packageInfo = require('./package.json');
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -26,13 +24,6 @@ module.exports = {
 						hotReload: true
 					}
 				}
-      },
-      { // CSS loader
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: ['css-loader'],
-          fallback: 'style-loader',
-        }),
       }
     ],
   },
@@ -46,7 +37,6 @@ module.exports = {
     },
   },
   plugins: [
-    new ExtractTextPlugin('widget.css'),
     new webpack.DefinePlugin({
       WIDGET_NAME: JSON.stringify(packageInfo.name),
       VERSION: JSON.stringify(packageInfo.version),
