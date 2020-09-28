@@ -11,7 +11,7 @@ const dispatch = createEventDispatcher();
 // WIDGETIC Components
 import Style from "Components/Style.svelte";
 
-// WIDGET local components
+// WIDGET Local Components
 import GridGallery from ".././components/GridGallery.svelte";
 
 // COMPONENT properties
@@ -42,6 +42,7 @@ let contentHeight = 0;
 onMount(async () => {
 });
 
+/* COMPONENT RESIZE */
 function onResize(event) {
   // console.log("onResize!", contentDiv.clientHeight);
   contentHeight = listOpen ? contentDiv.clientHeight : 0;
