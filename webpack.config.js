@@ -17,13 +17,7 @@ module.exports = {
     rules: [ 
       { // Svelte 3 loader
         test: /\.svelte$/,
-        use: {
-					loader: 'svelte-loader',
-					options: {
-						emitCss: true,
-						hotReload: true
-					}
-				}
+        use: ['svelte-loader'],
       }
     ],
   },
