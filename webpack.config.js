@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const packageInfo = require('./package.json');
+const mode = process.env.NODE_ENV || 'development';
+const prod = mode === 'production';
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -9,25 +12,32 @@ module.exports = {
     filename: 'widget.js',
     path: path.resolve(__dirname, 'lib')
   },
+  mode,
+  devtool: prod ? false: 'source-map',
   context: __dirname,
   module: {
-    rules: [
-      // Svelte 3 loader
-      {
+    rules: [ 
+      { // Svelte 3 loader
         test: /\.svelte$/,
-        use: ['svelte-loader'],
+        use: {
+					loader: 'svelte-loader',
+					options: {
+						emitCss: true,
+						hotReload: true
+					}
+				}
       },
-      {
+      { // CSS loader
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
           use: ['css-loader'],
+          fallback: 'style-loader',
         }),
       }
     ],
   },
   resolve: {
-    extensions: ['.mjs', '.js', '.html'],
+    extensions: ['.mjs', '.js', '.svelte', '.html'],
     alias: {
       Components: '@widgetic/components/components',
       Utils: '@widgetic/components/utils',
@@ -35,14 +45,6 @@ module.exports = {
       svelte: path.resolve('node_modules', 'svelte')
     },
   },
-  externals: [
-    function(context, request, callback) {
-      if (/^(core\/|spine|editor)/.test(request))
-        return callback(null, 'window.require("' + request + '")');
-      callback();
-    },
-    { jquery: '$' },
-  ],
   plugins: [
     new ExtractTextPlugin('widget.css'),
     new webpack.DefinePlugin({
