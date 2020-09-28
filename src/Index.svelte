@@ -1,10 +1,12 @@
-<!-- WIDGET JAVASCRIPT -->
+<!-- 
+  WIDGET JAVASCRIPT 
+-->
 <script>
 // SVELTE imports
 import { onMount } from 'svelte';
 
 // THIRD PARTY imports
-import tinycolor from "tinycolor2";
+// import tinycolor from "tinycolor2";
 
 // WIDGETIC Services in container: Fonts, Adaptive, Autoscale
 import container from "Services/container";
@@ -16,6 +18,7 @@ import DotsLoader from "Components/DotsLoader.svelte";
 // WIDGET local Components
 // import GridGallery from "./components/GridGallery.svelte";
 
+
 /* WIDGET PROPERTIES */
 // dimensions
 export let wWidth;
@@ -24,6 +27,7 @@ export let wHeight;
 // skin and content
 export let skin;
 export let content;
+
 
 /* WIDGET LAYOUTS COMPONENTS */
 // adaptive layout - for mobile(mandatory)
@@ -49,9 +53,7 @@ $:layoutComponent = layoutList[layout];
 let isAdaptive = false;
 
 
-/*** 
-  REACTIVE PROPERTIES (computed)
-***/
+/* WIDGET REACTIVE(computed) properties */
 
 // widget properties
 $:widgetBackgroundColor = skin.backgroundColor ? skin.backgroundColor : 'rgba(255,255,255,1)';
@@ -79,7 +81,9 @@ $:itemsPadding = skin.itemsPadding;
 let prevItemStrokeSize;
 $:itemStrokeSize = skin.itemStrokeSize;
 
-// widget data properties
+
+/* WIDGET LOCAL PROPERTIES */
+// widget DATA properties
 let compositionId;
 let factsArray = [];
 let loading = false;
@@ -92,11 +96,11 @@ $:contentCount = content.length;
 // fonts css object
 let fontsCss;
 
-// dom elements references
+// DOM elements references
 let mainComponent;
 
 
-/* WIDGET ON PROPERTIES UPDATE */
+/* WIDGET PROPERTIES UPDATE */
 $: {
   // resize mainComponent when title, font, content, border or padding changes
   if(prevLayout != layout ||
@@ -125,10 +129,11 @@ $: {
   prevTitleSize = titleSize;
 }
 
+/***
+  WIDGET METHODS
+***/
 
-/*** 
-  WIDGET MOUNT - start point
- ***/
+/* WIDGET MOUNT - start point */
 onMount(async () => {
   // read fonts from the container
   container.Fonts.updates.listen(css => {
@@ -146,9 +151,7 @@ onMount(async () => {
   
 });
 
-/*** 
-  WIDGET ONRESIZE
- ***/
+/* WIDGET RESIZE */
 function onResize(event) {
   setTimeout(() => {
     // console.log("onResize:", event);
@@ -165,10 +168,6 @@ function onResize(event) {
   }, 120);
 }
 
-
-/*
-  WIDGET INTERNAL METHODS
-*/
 function readWidgetData() {
   // console.log("readWidgetData");
   loading = true;
@@ -241,7 +240,7 @@ function onItemClick(event) {
 }
 
 /*
-  WIDGET GENERAL METHODS for EDITOR
+  WIDGET PUBLIC METHODS for EDITOR
 */
 export function addContent(item) {
   // console.log("Widget MainComponent: item that was added:", item);
@@ -269,7 +268,7 @@ export function on(eventName, handler) {
 }
 
 /*
-  WIDGET PUBLIC METHODS
+  WIDGET PUBLIC(API) METHODS
 */
 export function publicFunction1(param) {
   console.log("publicFunction1", param)
@@ -285,8 +284,10 @@ export function isAutoscalable() {
 
 </script>
 
-<!-- WIDGET CSS -->
 
+<!-- 
+  WIDGET CSS 
+-->
 <Style css="{`
   .widget-root {
     display: flex;
@@ -331,9 +332,8 @@ export function isAutoscalable() {
 
 
 <!--
-  WIDGET HTML TEMPLATE
+  WIDGET HTML
 -->
-
 <!-- WINDOW ELEMENT -->
 <svelte:window 
 bind:innerWidth={wWidth} bind:innerHeight={wHeight} 
