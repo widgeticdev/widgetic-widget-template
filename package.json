@@ -18,12 +18,10 @@
     
     "@widgetic/workbench": "^2.2.5",
     "@widgetic/editor": "^3.9.6",
-
-    "svelte": "^3.25.0",
+    
+    "lowdb": "^1.0.0",
     "svelte-transitions": "^1.2.0",
 
-    "lowdb": "^1.0.0",
-    
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",
@@ -31,9 +29,11 @@
     "webpack-merge": "^4.2.2",
     "webpack-sources": "^1.4.3",
 
+    "svelte": "^3.25.0",
     "svelte-loader": "^2.13.6",
-    "style-loader": "^0.18.2",
+
     "css-loader": "^0.28.7",
+    "style-loader": "^0.18.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0"
   }
 }
