@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "_widget-base-template",
+			"path": "."
+		},
+		{
+			"path": "../../../Downloads/template-webpack-master"
+		}
+	],
+	"settings": {}
+}
