@@ -148,7 +148,7 @@ onMount(async () => {
   });
   
   // write your init code here
-  
+  readWidgetData()
 });
 
 /* WIDGET RESIZE */
@@ -356,4 +356,4 @@ on:resize={() => onResize('widget')}/>
 </div>
 
 <!-- WIDGET LOADER -->
-<DotsLoader color={widgetBackgroundColor} style="opacity:{loading ? 1 : 0}" />
+<DotsLoader color={widgetBackgroundColor} visible={loading} />
