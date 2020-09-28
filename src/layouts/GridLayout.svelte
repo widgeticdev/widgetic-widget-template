@@ -1,44 +1,53 @@
-<svelte:window on:resize={onResize}/>
+<!-- 
+  COMPONENT JAVASCRIPT 
+-->
 <script>
-// svelte imports
+// SVELTE imports
 import { onMount } from 'svelte';
 //
 import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
 
-// Widgetic Services
+// WIDGETIC Services
 import container from "Services/container";
 
-// Widgetic Components
+// WIDGETIC Components
 import Style from "Components/Style.svelte";
 
-// Widget local components
+// WIDGET Local components
 import GridGallery from ".././components/GridGallery.svelte";
 
-// properties from outside
+
+// COMPONENT properties
 export let skin;
 export let content;
 //
 export let layout;
 export let disabled;
 
-// local properties
 
-// elements references
+// LOCAL properties
+
+// DOM elements references
 let headerDiv;
 let contentDiv;
 let statusDiv;
 
-// reactive(computed) properties
+// REACTIVE(computed) properties
 $:contentCount = content.length;
 $:titleText = content[0] ? content[0].titleText : "";
 $:elementsPadding = skin.elementsPadding;
 let contentHeight;
 
+/*
+  COMPONENT METHODS
+*/
+/* COMPONENT MOUNT - start point */
 onMount(async () => {
   // console.log("GridLayout:");
 });
 
+/* COMPONENT RESIZE */
 function onResize(event) {
   // console.log("onResize!", contentDiv.clientHeight);
   contentHeight = contentDiv ? contentDiv.clientHeight : 0;
@@ -56,7 +65,9 @@ export function cHeight() {
 </script>
 
 
-
+<!-- 
+  COMPONENT CSS 
+-->
 <Style css="{`
 
   .header {
@@ -94,10 +105,16 @@ export function cHeight() {
 `}">
 </Style>
 
+<!-- 
+  COMPONENT HTML 
+-->
+<svelte:window on:resize={onResize}/>
+
 <div class="header" bind:this={headerDiv}>
   <div class="title">{@html titleText || ""}</div>
 </div>
 
+<!-- CONTENT component -->
 <div class="content-holder">
   <GridGallery
   bind:content
