@@ -83,15 +83,15 @@ $:itemStrokeSize = skin.itemStrokeSize;
 
 
 /* WIDGET LOCAL PROPERTIES */
-// widget DATA properties
-let compositionId;
-let factsArray = [];
-let loading = false;
-
 // content
 let prevContent;
 let prevContentCount;
 $:contentCount = content.length;
+
+// DATA(saved) properties
+let compositionId;
+let factsArray = [];
+let loading = false;
 
 // fonts css object
 let fontsCss;
