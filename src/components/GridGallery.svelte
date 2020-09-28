@@ -27,10 +27,6 @@ export let layout;
 export let itemClicked;
 export let disabled;
 
-// DOM elements references
-export let contentDiv;
-
-
 // REACTIVE(computed) properties
 $:titleFont = skin.textFont.family;
 $:titleSize = Math.max(skin.textFont.size - 2, 0);
@@ -38,6 +34,8 @@ $:titleColor = skin.textColor;
 // items properties
 $:itemBackFillHoverColor = tinycolor(skin.itemHoverColor).setAlpha(0.4);
 
+// DOM elements references
+export let contentDiv;
 
 /*
   COMPONENT METHODS
