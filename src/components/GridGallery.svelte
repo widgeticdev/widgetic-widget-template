@@ -1,21 +1,21 @@
-<svelte:window bind:innerWidth={wWidth} bind:innerHeight={wHeight} on:resize={onResize}/>
+<!-- 
+  COMPONENT JAVASCRIPT 
+-->
 <script>
-// svelte imports
+// SVELTE imports
 import { onMount } from 'svelte';
 //
 import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
 
-// Services
-import container from "Services/container";
-
-// Widgetic Components
-import Style from "Components/Style.svelte";
-
-// third party libraries
+// THIRD PARTY libraries imports
 import tinycolor from "tinycolor2";
 
-// properties from outside
+// WIDGETIC Components imports
+import Style from "Components/Style.svelte";
+
+
+// COMPONENT properties
 export let wWidth;
 export let wHeight;
 //
@@ -26,13 +26,12 @@ export let layout;
 //
 export let itemClicked;
 export let disabled;
+
+// DOM elements references
 export let contentDiv;
 
-// elements references
 
-// local properties
-
-// reactive(computed) properties
+// REACTIVE(computed) properties
 $:titleFont = skin.textFont.family;
 $:titleSize = Math.max(skin.textFont.size - 2, 0);
 $:titleColor = skin.textColor;
@@ -40,15 +39,25 @@ $:titleColor = skin.textColor;
 $:itemBackFillHoverColor = tinycolor(skin.itemHoverColor).setAlpha(0.4);
 
 
+/*
+  COMPONENT METHODS
+*/
+// COMPONENT MOUNT - start point
 onMount(async () => {
   // console.log("GridGallery onMount:", itemClicked);
 });
 
-/*
-  WIDGET METHODS
-*/
+// COMPONENT RESIZE
 function onResize(event) {
   // console.log("GALLERY RESIZE:", contentDiv ? contentDiv.clientHeight : -1);
+}
+
+function onItemClick(event) {
+  // console.log("gallery onItemClick:", event);
+
+  // itemClicked = true;
+
+  dispatch('itemClick', event);
 }
 
 function allItemsNoText(pContent) {
@@ -60,17 +69,12 @@ function allItemsNoText(pContent) {
   return true;
 }
 
-
-function onItemClick(event) {
-  // console.log("gallery onItemClick:", event);
-
-  // itemClicked = true;
-
-  dispatch('itemClick', event);
-}
-
 </script>
 
+
+<!-- 
+  COMPONENT CSS 
+-->
 <Style css="{`
   .content-container {
     display: ${layout == "grid" ? 'grid' : 'flex'};
@@ -166,6 +170,11 @@ function onItemClick(event) {
 `}">
 </Style>
 
+
+<!-- 
+  COMPONENT HTML 
+-->
+<svelte:window bind:innerWidth={wWidth} bind:innerHeight={wHeight} on:resize={onResize}/>
 <div class="content-container" bind:this={contentDiv}>
   {#each content as item}
     <div class="emoji-item"
