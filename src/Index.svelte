@@ -2,9 +2,6 @@
 <script>
 // SVELTE imports
 import { onMount } from 'svelte';
-import { createEventDispatcher } from 'svelte';
-const dispatch = createEventDispatcher();
-import { fade } from "svelte-transitions";
 
 // THIRD PARTY imports
 import tinycolor from "tinycolor2";
@@ -85,7 +82,7 @@ $:itemStrokeSize = skin.itemStrokeSize;
 // widget data properties
 let compositionId;
 let factsArray = [];
-let loading = true;
+let loading = false;
 
 // content
 let prevContent;
@@ -144,9 +141,9 @@ onMount(async () => {
   container.Adaptive.updates.listen(isOnAdaptive => {
     isAdaptive = isOnAdaptive; // console.log("isOnAdaptive:", isOnAdaptive)
   });
-
-  // read data(facts) for current composition
-  readWidgetData();
+  
+  // write your init code here
+  
 });
 
 /*** 
@@ -359,8 +356,4 @@ on:resize={() => onResize('widget')}/>
 </div>
 
 <!-- WIDGET LOADER -->
-{#if loading}
-<span transition:fade>
-  <DotsLoader color={widgetBackgroundColor} />
-</span>
-{/if}
+<DotsLoader color={widgetBackgroundColor} style="opacity:{loading ? 1 : 0}" />
