@@ -21,7 +21,7 @@ export let content;
 export let layout;
 export let disabled;
 
-// local properties
+// LOCAL properties
 let listOpen = false;
 
 // DOM elements references
@@ -203,6 +203,7 @@ export function cHeight() {
   </div>
 </div>
 
+<!-- CONTENT component -->
 <div class="content-holder">
   <GridGallery
   bind:content
