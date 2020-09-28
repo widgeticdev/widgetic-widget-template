@@ -1,18 +1,20 @@
-<svelte:window on:resize={onResize}/>
+<!-- 
+  COMPONENT JAVASCRIPT 
+-->
 <script>
-// svelte imports
+// SVELTE imports
 import { onMount } from 'svelte';
 //
 import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
 
-// Widgetic Components
+// WIDGETIC Components
 import Style from "Components/Style.svelte";
 
-// Widget local components
+// WIDGET local components
 import GridGallery from ".././components/GridGallery.svelte";
 
-// properties from outside
+// COMPONENT properties
 export let skin;
 export let content;
 //
@@ -22,29 +24,33 @@ export let disabled;
 // local properties
 let listOpen = false;
 
-// elements references
+// DOM elements references
 let headerDiv;
 let contentDiv;
 let statusDiv;
 
-// reactive(computed) properties
+// REACTIVE(computed) properties
 $:contentCount = content.length;
 $:titleText = content[0] ? content[0].titleText : "";
 $:elementsPadding = skin.elementsPadding;
 let contentHeight = 0;
 
+/*
+  COMPONENT METHODS
+*/
+/* COMPONENT MOUNT - start point */
 onMount(async () => {
 });
+
+function onResize(event) {
+  // console.log("onResize!", contentDiv.clientHeight);
+  contentHeight = listOpen ? contentDiv.clientHeight : 0;
+}
 
 function onArrowClick() {
   listOpen = !listOpen;
   onResize();
   dispatch('resize');
-}
-
-function onResize(event) {
-  // console.log("onResize!", contentDiv.clientHeight);
-  contentHeight = listOpen ? contentDiv.clientHeight : 0;
 }
 
 export function cHeight() {
@@ -59,7 +65,9 @@ export function cHeight() {
 </script>
 
 
-
+<!-- 
+  COMPONENT CSS 
+-->
 <Style css="{`
 
   .header {
@@ -160,6 +168,10 @@ export function cHeight() {
 `}">
 </Style>
 
+<!-- 
+  COMPONENT HTML 
+-->
+<svelte:window on:resize={onResize}/>
 <div class="header" bind:this={headerDiv}>
   <div class="title">{@html titleText || ""}</div>
   <div class="arrow-container" on:click={onArrowClick}>
