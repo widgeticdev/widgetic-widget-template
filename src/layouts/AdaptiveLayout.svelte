@@ -59,7 +59,7 @@ export function cHeight() {
   return headerDiv ? (
     headerDiv.clientHeight +
     (listOpen && content.length ? (elementsPadding + contentDiv.clientHeight) : 0) +
-    (listOpen && statusDiv.clientHeight > 0 ? (elementsPadding + statusDiv.clientHeight) : 0)
+    (listOpen && statusDiv && statusDiv.clientHeight > 0 ? (elementsPadding + statusDiv.clientHeight) : 0)
   ) : 0;
 }
 
