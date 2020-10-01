@@ -5,7 +5,7 @@
 // SVELTE imports
 import { onMount } from 'svelte';
 
-// THIRD PARTY imports
+// THIRD PARTY libraries imports
 // import tinycolor from "tinycolor2";
 
 // WIDGETIC Services in container: Fonts, Adaptive, Autoscale
@@ -17,6 +17,9 @@ import DotsLoader from "Components/DotsLoader.svelte";
 
 // WIDGET local Components
 // import GridGallery from "./components/GridGallery.svelte";
+
+// THIRD PARTY Components
+// import { Button } from 'svelte-mui';
 
 
 /* WIDGET PROPERTIES */
