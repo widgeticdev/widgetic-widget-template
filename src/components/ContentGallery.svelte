@@ -8,7 +8,7 @@ import { onMount } from 'svelte';
 import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
 
-// THIRD PARTY libraries imports
+// THIRD PARTY services
 import tinycolor from "tinycolor2";
 
 // WIDGETIC Components imports

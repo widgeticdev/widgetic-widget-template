@@ -15,7 +15,7 @@ import container from "Services/container";
 import Style from "Components/Style.svelte";
 
 // WIDGET Local components
-import GridGallery from ".././components/GridGallery.svelte";
+import ContentGallery from "../components/ContentGallery.svelte";
 
 
 // COMPONENT properties
@@ -116,7 +116,7 @@ export function cHeight() {
 
 <!-- CONTENT component -->
 <div class="content-holder">
-  <GridGallery
+  <ContentGallery
   bind:content
   {skin}
   {layout}

@@ -12,7 +12,7 @@ const dispatch = createEventDispatcher();
 import Style from "Components/Style.svelte";
 
 // WIDGET Local Components
-import GridGallery from ".././components/GridGallery.svelte";
+import ContentGallery from "../components/ContentGallery.svelte";
 
 // COMPONENT properties
 export let skin;
@@ -205,7 +205,7 @@ export function cHeight() {
 
 <!-- CONTENT component -->
 <div class="content-holder">
-  <GridGallery
+  <ContentGallery
   bind:content
   {skin}
   {layout}
