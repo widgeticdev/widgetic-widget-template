@@ -24,7 +24,6 @@ export let content;
 //
 export let layout;
 //
-export let itemClicked;
 export let disabled;
 
 // REACTIVE(computed) properties
@@ -42,7 +41,7 @@ export let contentDiv;
 */
 // COMPONENT MOUNT - start point
 onMount(async () => {
-  // console.log("GridGallery onMount:", itemClicked);
+  // console.log("GridGallery onMount");
 });
 
 // COMPONENT RESIZE
@@ -52,8 +51,6 @@ function onResize(event) {
 
 function onItemClick(event) {
   // console.log("gallery onItemClick:", event);
-
-  // itemClicked = true;
 
   dispatch('itemClick', event);
 }
@@ -177,7 +174,7 @@ function allItemsNoText(pContent) {
   {#each content as item}
     <div class="emoji-item"
          style="justify-content: {item.buttonText && item.emojiIcon ? 'flex-start' : 'center'};
-                pointer-events:  {itemClicked || disabled ? 'none' : 'auto'};"
+                pointer-events:  {disabled ? 'none' : 'auto'};"
          on:click="{(event) => onItemClick(item)}">
 
       {#if item.emojiIcon}
