@@ -13,6 +13,7 @@ import tinycolor from "tinycolor2";
 
 // WIDGETIC Components imports
 import Style from "Components/Style.svelte";
+import ContentItem from "./ContentItem.svelte";
 
 
 // COMPONENT properties
@@ -172,21 +173,6 @@ function allItemsNoText(pContent) {
 <svelte:window bind:innerWidth={wWidth} bind:innerHeight={wHeight} on:resize={onResize}/>
 <div class="content-container" bind:this={contentDiv}>
   {#each content as item}
-    <div class="emoji-item"
-         style="justify-content: {item.buttonText && item.emojiIcon ? 'flex-start' : 'center'};
-                pointer-events:  {disabled ? 'none' : 'auto'};"
-         on:click="{(event) => onItemClick(item)}">
-
-      {#if item.emojiIcon}
-      <img class="emoji-icon" alt="" src="{item.emojiIcon}"/>
-      {/if}
-
-      <div class="emoji-text-ct" style="display: {!item.buttonText && !item.noVotes ? 'none' : 'block'}">
-        <div class="emoji-text" style="display: {item.buttonText && skin.displayLabel ? 'block' : 'none'}">{@html item.buttonText || ""}</div>
-      </div>
-
-      <div class="emoji-stroke"></div>
-
-    </div>
+    <ContentItem {item} {skin} bind:disabled on:click = {(event) => dispatch('itemClick', event)} />
   {/each}
 </div>
