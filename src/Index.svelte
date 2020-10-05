@@ -18,19 +18,6 @@ import container from "Services/container";
 import Style from "Components/Style.svelte";
 import DotsLoader from "Components/DotsLoader.svelte";
 
-// WIDGET local Components
-// import GridGallery from "./components/GridGallery.svelte";
-
-/* WIDGET PROPERTIES */
-// dimensions
-export let wWidth;
-export let wHeight;
-
-// skin and content
-export let skin;
-export let content;
-
-
 /* WIDGET LAYOUTS COMPONENTS */
 // adaptive layout - for mobile(mandatory)
 import AdaptiveLayout from "./layouts/AdaptiveLayout.svelte";
@@ -46,14 +33,26 @@ const layoutList = {
 //list: ListLayout
 };
 
-// current selected layout
+// current selected layout from theme
+let isAdaptive = false;
 $:layout = isAdaptive || !skin.layout ? "adaptive" : skin.layout;
 let prevLayout;
 
-// current selected layout component
+// current layout component
 $:layoutComponent = layoutList[layout];
-let isAdaptive = false;
 
+/* WIDGET LOCAL COMPONENTS */
+// import GridGallery from "./components/GridGallery.svelte";
+
+
+/* WIDGET PROPERTIES */
+// dimensions
+export let wWidth;
+export let wHeight;
+
+// skin(theme) and content
+export let skin; // theme
+export let content;
 
 /* WIDGET REACTIVE(computed) properties */
 
