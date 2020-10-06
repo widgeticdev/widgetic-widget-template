@@ -1,35 +1,31 @@
 {
   "options": {
-    "max": 1000,
     "min": 1,
+    "max": 1000,
     "notification": {
       "min": "Please add at least one item!",
       "max": "You reached the maximum number of items."
     },
-    "mainAttribute": "buttonText",
-    "preview": "core/controls"
+    "mainAttribute": "buttonText"
   },
   "input": {
     "attribute": "buttonText",
     "control": "core/controls/text",
-    "options": {
-      "label": "",
-      "placeholder": "Add vote option here"
-    }
+    "options": {}
   },
   "bulkEditor": {
     "title": "Widget Details",
     "help_text": "Enter your question here.",
-    "attributes": [
-      "titleText"
-    ]
+    "attributes": ["titleText"]
   },
   "attributes": {
     "buttonText": {
       "control": "core/controls/text",
       "options": {
-        "label": "",
-        "placeholder": "Add vote option here"
+        "label": "Item",
+        "help_text": "Item help text",
+        "placeholder": "Add vote option here",
+        "default": "Item"
       }
     },
     "emojiIcon": {
@@ -85,8 +81,10 @@
     "titleText": {
       "control": "core/controls/text",
       "options": {
-        "label": "Title",
-        "placeholder": "Add your title here",
+        "label": "Question",
+        "help_text": "Property help text",
+        "placeholder": "Add your question here",
+        "default": "Your question?",
         "editable": false
       }
     }
