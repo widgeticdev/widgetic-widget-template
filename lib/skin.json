@@ -20,6 +20,17 @@
           ]
         }
       },
+      "switchFillColor": {
+        "if": {
+          "layout": "adaptive"
+        },
+        "control": "core/controls/color",
+        "options": {
+          "help_text": "Select the color and transparency for the switch background.",
+          "label": "Switch Color",
+          "default": "rgba(201,205,207,0.2)"
+        }
+      },
       "backgroundColor": {
         "control": "core/controls/color",
         "options": {

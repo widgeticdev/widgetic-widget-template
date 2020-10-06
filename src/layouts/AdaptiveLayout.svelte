@@ -92,7 +92,7 @@ export function cHeight() {
     height: 38px;
 
     border-radius: 5px;
-    background-color: rgba(201,205,207,0.2);
+    background-color: ${skin.switchFillColor};
 
     cursor: pointer;
     margin-left: ${elementsPadding}px;

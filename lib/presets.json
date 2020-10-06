@@ -4,6 +4,7 @@
     "name": "Theme 1",
     "widget_id": "5e32af95ecb2a1857e8b4568",
 
+    "switchFillColor": "rgba(201,205,207,0.2)",
     "backgroundColor": "rgb(255, 255, 255)",
     "borderSize": 5,
     "borderRadius": 5,
@@ -36,6 +37,7 @@
     "name": "Theme 2",
     "widget_id": "5e32af95ecb2a1857e8b4568",
 
+    "switchFillColor": "rgba(201,205,207,0.2)",
     "backgroundColor": "rgb(255, 244, 255)",
     "borderSize": 5,
     "borderRadius": 0,
@@ -55,7 +57,7 @@
     "itemStrokeHoverColor": "#35e66c",
 
     "textFont": {
-      "family": "Lato",
+      "family": "Lato", 
       "style": "300",
       "size": 17,
       "source": "google",
