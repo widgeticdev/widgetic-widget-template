@@ -11,7 +11,11 @@
   "input": {
     "attribute": "buttonText",
     "control": "core/controls/text",
-    "options": {}
+    "options": {
+      "label": "",
+      "help_text": "Item help text",
+      "placeholder": "Add vote option here"
+    }
   },
   "bulkEditor": {
     "title": "Widget Details",
@@ -22,10 +26,7 @@
     "buttonText": {
       "control": "core/controls/text",
       "options": {
-        "label": "Item",
-        "help_text": "Item help text",
-        "placeholder": "Add vote option here",
-        "default": "Item"
+        "default": ""
       }
     },
     "emojiIcon": {
