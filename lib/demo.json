@@ -3,28 +3,29 @@
     "content": [
       {
         "titleText": "YOUR TITLE HERE",
+        "description": "Description here",
         "id": "c1",
         "order": 1,
         "buttonText": "Item title 1",
-        "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f970_loveit.svg"
+        "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_30_halo_smile.svg"
       },
       {
         "id": "c2",
         "order": 2,
         "buttonText": "Item title 2",
-        "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f642_fine.svg"
+        "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_03_happy.svg"
       },
       {
         "id": "c3",
         "order": 3,
         "buttonText": "Item title 3",
-        "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f629_upset.svg"
+        "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_06_joy_tears.svg"
       },
       {
         "id": "c4",
         "order": 4,
         "buttonText": "Item title 4",
-        "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/airtable/1f92c_angry.svg"
+        "emojiIcon": "https://files.widgetic.com/file/widgetic-uploads/assets/widgets/emoji-poll/whatsapp/emoji_01_winkle_and_tongue.svg"
       }
     ]
   }
