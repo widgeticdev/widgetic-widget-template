@@ -1,5 +1,5 @@
 {
-  "colorAttributes": ["backgroundColor", "textFillColor, linkFillColor"],
+  "colorAttributes": ["backgroundColor", "textFillColor", "linkFillColor"],
   "tabs": {
     "Interface": {
       "layout": {
