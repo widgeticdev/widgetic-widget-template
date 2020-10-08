@@ -13,6 +13,7 @@ import { onMount } from 'svelte';
 
 // WIDGETIC Services in container: Fonts, Adaptive, Autoscale
 import container from "Services/container";
+let dataStore = container.Data;
 
 // WIDGETIC Components
 import Style from "Components/Style.svelte";
@@ -136,19 +137,26 @@ $: {
 
 /* WIDGET MOUNT - start point */
 onMount(async () => {
-  // read fonts from the container
+
+  /* WIDGETIC SERVICES init code here */
+  // listen to Fonts Service updates to update fonts CSS
   container.Fonts.updates.listen(css => {
     fontsCss = css; // console.log("FONTS updated:", fontsCss);
   });
 
-  // read adaptive from the container
+  // read Adaptive Service updates to know when widget goes in adaptive layout
   // console.log("Widget onMount adaptive value:", container.adaptive);
   isAdaptive = container.Adaptive.isOnAdaptive;
   container.Adaptive.updates.listen(isOnAdaptive => {
     isAdaptive = isOnAdaptive; // console.log("isOnAdaptive:", isOnAdaptive)
   });
   
-  // write your init code here
+
+  /* YOUR INIT CODE here */
+
+  // read current collected end-users data
+  // - needed for read/write widgets that must collect data from end-user
+  // - remove it for read only widgets
   readWidgetData()
 });
 
@@ -169,15 +177,16 @@ function onResize(event) {
   }, 120);
 }
 
+// READ END-USERS DATA
 function readWidgetData() {
   // console.log("readWidgetData");
   loading = true;
-  // console.log("Read facts for composition:", container.metadata.composition.id);
-  // container.Fact.readFacts(container.metadata.composition.id).then((res) => {
-  container.Fact.readFacts().then(
+  
+  // read all votes
+  dataStore.readAllData().then(
     (res) => {
       // read the facts
-      // console.log("FACTS read result:", res.result);
+      // console.log("USERs DATA resultsfreadDataNamed:", res.result);
       factsArray = res.result;
 
       // resize the main component
@@ -187,61 +196,68 @@ function readWidgetData() {
       loading = false;
     },
     (err) => {
-      console.log("FACTS read error:", {err}.err.message);
+      console.log("USERS DATA read error:", {err}.err.message);
       loading = false;
     }
   );
 }
 
-function deleteVotesWidthVoteId(voteId) {
+// SAVE END-USERS DATA
+// here you define the property name("voteid")
+// here you pass the property value(contentItemId)
+function saveUserVoteForItem(contentItemId) {
+  
+  // show loader
+  loading = true;
+
+  // save the user's vote for the clicked option(content item)
+  dataStore.saveData({ voteid: contentItemId })
+  .then(
+    (res) => {
+      // console.log("did create the fact:", res);
+      // hide loader
+      loading = false;
+
+      // read again the data to update the number of votes
+      readWidgetData();
+    },
+    (err) => {
+      console.log("Fact create error:", {err}.err.message);
+
+      // hide loader
+      loading = false;
+    }
+  );
+}
+
+// DELETE END-USERS DATA
+function deleteAllVotesForItem(contentItemId) {
   // console.log("Delete facts for composition:", container.metadata.composition.id);
 
   // show loader
   loading = true;
 
-  container.Fact.deleteFactsWidth("voteid", voteId).then(
+  // delete all votes for the removed content item
+  dataStore.deleteDataWithProperty("voteid", contentItemId).then(
     (res) => {
       // delted facts
-      console.log("FACTS deleted result:", res);
+      console.log("DATA deleted result:", res);
 
-      // hide loader and show elements
+      // hide loader
       loading = false;
     },
     (err) => {
-      console.log("FACTS deleted error:", {err}.err.message);
+      console.log("DATA deleted error:", {err}.err.message);
       loading = false;
     }
   );
 }
 
-function onItemClick(event) {
-  
-  // show loader
-  loading = true;
 
-  // create a new fact to save the vote of the selected option
-  container.Fact.create({ voteid:event.detail.id })
-  .then(
-    (res) => {
-      // console.log("did create the fact:", res);
 
-      // read again the data to update the new number
-      readWidgetData();
-    },
-    (err) => {
-      console.log("Fact create error:", {err}.err.message);
-      loading = false;
-    }
-  );
-
-  // container.Fact.delete("5e909891eb44a4ef733ffe18").then(
-  //   (res) => {
-  //     console.log("delete the fact:", res);
-  //   });
-}
 
 /*
-  WIDGET PUBLIC METHODS for EDITOR
+  WIDGET PUBLIC CONTENT METHODS for EDITOR
 */
 export function addContent(item) {
   // console.log("Widget MainComponent: item that was added:", item);
@@ -250,8 +266,8 @@ export function addContent(item) {
 export function removeContent(item) {
   // console.log("Widget MainComponent: item that was deleted:", item.id);
 
-  // delete all data(from the database) of this item that was removed
-  deleteVotesWidthVoteId(item.id);
+  // delete all data(from the database) for this item that was removed
+  deleteAllVotesForItem(item.id);
 }
 
 export function clearContent() {
@@ -352,7 +368,7 @@ on:resize={() => onResize('widget')}/>
     {titleText}
     bind:disabled={loading}
     on:resize={() => onResize('main-component')}
-    on:itemClick={(event) => onItemClick(event)}/>
+    on:itemClick={(event) => saveUserVoteForItem(event.detail.id)}/>
   
 </div>
 
