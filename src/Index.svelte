@@ -92,7 +92,7 @@ $:contentCount = content.length;
 
 // DATA(saved) properties
 let compositionId;
-let factsArray = [];
+let usersDataArray = [];
 let loading = false;
 
 // fonts css object
@@ -186,8 +186,8 @@ function readWidgetData() {
   dataStore.readAllData().then(
     (res) => {
       // read the facts
-      // console.log("USERs DATA resultsfreadDataNamed:", res.result);
-      factsArray = res.result;
+      // console.log("USERS DATA results:", res.result);
+      usersDataArray = res.result;
 
       // resize the main component
       onResize('main-component');
@@ -206,15 +206,15 @@ function readWidgetData() {
 // here you define the property name("voteid")
 // here you pass the property value(contentItemId)
 function saveUserVoteForItem(contentItemId) {
+  // console.log("Save vote for contentItemId:", contentItemId);
   
   // show loader
   loading = true;
 
   // save the user's vote for the clicked option(content item)
-  dataStore.saveData({ voteid: contentItemId })
-  .then(
+  dataStore.saveData({ voteid: contentItemId }).then(
     (res) => {
-      // console.log("did create the fact:", res);
+      // console.log("did create the data:", res);
       // hide loader
       loading = false;
 
@@ -232,7 +232,7 @@ function saveUserVoteForItem(contentItemId) {
 
 // DELETE END-USERS DATA
 function deleteAllVotesForItem(contentItemId) {
-  // console.log("Delete facts for composition:", container.metadata.composition.id);
+  // console.log("Delete user data for composition:", container.metadata.composition.id);
 
   // show loader
   loading = true;
@@ -240,7 +240,7 @@ function deleteAllVotesForItem(contentItemId) {
   // delete all votes for the removed content item
   dataStore.deleteDataWithProperty("voteid", contentItemId).then(
     (res) => {
-      // delted facts
+      // delted data records
       console.log("DATA deleted result:", res);
 
       // hide loader
@@ -274,7 +274,7 @@ export function clearContent() {
   // console.log("all Content was deleted!", content);
 
   // reset votes array
-  // factsArray = [];
+  // usersDataArray = [];
 
   // delete all facts from the database for this composition
   // deleteFacts();
