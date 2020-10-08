@@ -173,6 +173,6 @@ function allItemsNoText(pContent) {
 <svelte:window bind:innerWidth={wWidth} bind:innerHeight={wHeight} on:resize={onResize}/>
 <div class="content-container" bind:this={contentDiv}>
   {#each content as item}
-    <ContentItem {item} {skin} bind:disabled on:click = {(event) => dispatch('itemClick', event)} />
+    <ContentItem {item} {skin} bind:disabled on:click = {(event) => dispatch('itemClick', event.detail)} />
   {/each}
 </div>

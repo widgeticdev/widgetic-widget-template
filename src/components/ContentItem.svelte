@@ -37,7 +37,7 @@ export let disabled;
 <div class="emoji-item"
       style="justify-content: {item.buttonText && item.emojiIcon ? 'flex-start' : 'center'};
             pointer-events:  {disabled ? 'none' : 'auto'};"
-      on:click="{(event) => dispatch('click', event)}">
+      on:click="{(event) => dispatch('click', item)}">
 
   {#if item.emojiIcon}
   <img class="emoji-icon" alt="" src="{item.emojiIcon}"/>
