@@ -15,13 +15,18 @@
   },
   "dependencies": {
     "@widgetic/components": "^10.0.5",
+
     "@widgetic/workbench": "^2.2.7",
     "@widgetic/editor": "^3.9.6",
+    "@widgetic/tools": "^1.0.0",
+    
     "lowdb": "^1.0.0",
+    
     "webpack": "^4.41.4",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
+    
     "svelte": "^3.25.0",
     "svelte-loader": "^2.13.6"
   }
