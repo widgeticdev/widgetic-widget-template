@@ -11,8 +11,10 @@ import { onMount } from 'svelte';
 // THIRD PARTY Components
 // import { Button } from 'svelte-mui';
 
-// WIDGETIC Services in container: Fonts, Adaptive, Autoscale
+// WIDGETIC Services in container: Fonts, Adaptive, Autoscale, DataStore
 import container from "Services/container";
+
+// Data Store Service to collect end-users data
 let dataStore = container.Data;
 
 // WIDGETIC Components
@@ -222,7 +224,7 @@ function saveUserVoteForItem(contentItemId) {
       readWidgetData();
     },
     (err) => {
-      console.log("Fact create error:", {err}.err.message);
+      console.log("Data create error:", {err}.err.message);
 
       // hide loader
       loading = false;
@@ -248,6 +250,8 @@ function deleteAllVotesForItem(contentItemId) {
     },
     (err) => {
       console.log("DATA deleted error:", {err}.err.message);
+
+      // hide loader
       loading = false;
     }
   );
