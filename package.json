@@ -18,7 +18,7 @@
 
     "@widgetic/workbench": "^2.2.7",
     "@widgetic/editor": "^3.9.6",
-    "@widgetic/tools": "^1.0.0",
+    "@widgetic/tools": "^1.0.1",
     
     "lowdb": "^1.0.0",
     
