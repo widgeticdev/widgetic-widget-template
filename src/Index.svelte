@@ -188,7 +188,7 @@ function readWidgetData() {
   dataStore.readAllData().then(
     (res) => {
       // read the facts
-      // console.log("USERS DATA results:", res);
+      console.log("USERS DATA results:", res);
       usersDataArray = res;
 
       // resize the main component
@@ -245,6 +245,9 @@ function deleteAllVotesForItem(contentItemId) {
 
       // hide loader
       loading = false;
+
+      // read again the data to update the number of votes
+      readWidgetData();
     },
     (err) => {
       console.log("DATA deleted error:", {err}.err.message);
