@@ -14,9 +14,9 @@
     "postversion": "git push"
   },
   "dependencies": {
-    "@widgetic/components": "^10.0.6",
+    "@widgetic/components": "^10.0.7",
 
-    "@widgetic/workbench": "^2.2.8",
+    "@widgetic/workbench": "^2.2.10",
     "@widgetic/editor": "^3.9.8",
     "@widgetic/tools": "^1.0.1",
     
