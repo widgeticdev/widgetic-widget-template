@@ -188,8 +188,8 @@ function readWidgetData() {
   dataStore.readAllData().then(
     (res) => {
       // read the facts
-      // console.log("USERS DATA results:", res.result);
-      usersDataArray = res.result;
+      // console.log("USERS DATA results:", res);
+      usersDataArray = res;
 
       // resize the main component
       onResize('main-component');
@@ -217,8 +217,6 @@ function saveUserVoteForItem(contentItemId) {
   dataStore.saveData({ voteid: contentItemId }).then(
     (res) => {
       // console.log("did create the data:", res);
-      // hide loader
-      loading = false;
 
       // read again the data to update the number of votes
       readWidgetData();
