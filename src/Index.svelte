@@ -89,12 +89,17 @@ $:itemStrokeSize = skin.itemStrokeSize;
 /* WIDGET LOCAL PROPERTIES */
 // content
 let prevContent;
+$:newContent = getNewContent(content, usersDataArray);
 let prevContentCount;
 $:contentCount = content.length;
 
 // DATA(saved) properties
-let compositionId;
 let usersDataArray = [];
+let compositionId;
+let votedOptionId = "undefined";
+$:disabled = (votedOptionId != "undefined");
+$:totalVotersNo = content.length && usersDataArray.length ? usersDataArray.length : 0;
+//
 let loading = false;
 
 // fonts css object
@@ -155,6 +160,16 @@ onMount(async () => {
   
 
   /* YOUR INIT CODE here */
+  // read composition id from metadata
+  compositionId = container.metadata && container.metadata.composition ? container.metadata.composition.id : "";
+  // console.log("widget onMount loadedCompositionId from meta:", compositionId);
+
+  // read the voted option from local storage for the composition id read above
+  // localStorage.clear();
+  // localStorage[compositionId] = "undefined";
+  console.log("Widget onMount localStorage:", localStorage);
+  if(localStorage) votedOptionId = localStorage[compositionId];
+  // setTimeout(() => console.log("Widget onMount votedOptionId:", votedOptionId, disabled), 100);
 
   // read current collected end-users data
   // - needed for read/write widgets that must collect data from end-user
@@ -216,7 +231,10 @@ function saveUserVoteForItem(contentItemId) {
   // save the user's vote for the clicked option(content item)
   dataStore.saveData({ voteid: contentItemId }).then(
     (res) => {
-      // console.log("did create the data:", res);
+      // console.log("did create the data:", res.voteid);
+
+      // update the votedOptionId to show the percents
+      updateVotedOptionId(res.voteid)
 
       // read again the data to update the number of votes
       readWidgetData();
@@ -258,7 +276,33 @@ function deleteAllVotesForItem(contentItemId) {
   );
 }
 
+function getNewContent(content, factsArray) {
+  // console.log("getNewContent:", content, factsArray);
+  let nContent = [];
+  content.forEach((item, i) => {
+    // read number of votes from facts for each vote item
+    item.noVotes = 0;
+    // console.log("content item:", item);
+    factsArray.forEach((fact, j) => {
+      // console.log("fact:", item.id, fact.voteid);
+      if(item.id == fact.voteid) item.noVotes++;
+    });
+    // console.log("item:", item);
 
+    // check if this item is the one voted by the current user
+    if(item.id == votedOptionId) item.currentVote = true;
+
+    // add it to the array
+    nContent.push(item);
+  });
+
+  return nContent;
+}
+
+function updateVotedOptionId(vOptionId) {
+  votedOptionId = vOptionId;
+  localStorage[compositionId] = vOptionId;
+}
 
 
 /*
@@ -368,10 +412,11 @@ on:resize={() => onResize('widget')}/>
   <svelte:component
     this={layoutComponent} bind:this={mainComponent}
     {skin}
-    bind:content
+    bind:content={newContent}
     {layout}
     {titleText}
-    bind:disabled={loading}
+    bind:disabled
+    bind:totalVotersNo
     on:resize={() => onResize('main-component')}
     on:itemClick={(event) => saveUserVoteForItem(event.detail.id)}/>
   
