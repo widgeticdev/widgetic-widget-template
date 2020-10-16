@@ -20,6 +20,7 @@ export let content;
 //
 export let layout;
 export let disabled;
+export let totalVotersNo;
 
 // LOCAL properties
 let listOpen = false;
@@ -83,8 +84,6 @@ export function cHeight() {
     display: flex;
     justify-content: center;
     flex-direction: column;
-
-    pointer-events: ${disabled ? 'none' : 'auto'};
 
     overflow: hidden;
 
@@ -211,6 +210,7 @@ export function cHeight() {
   {layout}
   bind:contentDiv
   bind:disabled
+  bind:totalVotersNo
   on:itemClick={(event) => {
     dispatch('resize');
     dispatch('itemClick', event.detail);

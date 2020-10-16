@@ -26,6 +26,7 @@ export let content;
 export let layout;
 //
 export let disabled;
+export let totalVotersNo;
 
 // REACTIVE(computed) properties
 $:titleFont = skin.textFont.family;
@@ -173,6 +174,6 @@ function allItemsNoText(pContent) {
 <svelte:window bind:innerWidth={wWidth} bind:innerHeight={wHeight} on:resize={onResize}/>
 <div class="content-container" bind:this={contentDiv}>
   {#each content as item}
-    <ContentItem {item} {skin} bind:disabled on:click = {(event) => dispatch('itemClick', event.detail)} />
+    <ContentItem {item} {skin} {layout} bind:disabled bind:totalVotersNo on:click = {(event) => dispatch('itemClick', event.detail)} />
   {/each}
 </div>

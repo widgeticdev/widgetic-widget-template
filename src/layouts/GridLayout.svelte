@@ -24,6 +24,7 @@ export let content;
 //
 export let layout;
 export let disabled;
+export let totalVotersNo;
 
 
 // LOCAL properties
@@ -122,6 +123,7 @@ export function cHeight() {
   {layout}
   bind:contentDiv
   bind:disabled
+  bind:totalVotersNo
   on:itemClick={(event) => {
     dispatch('resize');
     dispatch('itemClick', event.detail);
