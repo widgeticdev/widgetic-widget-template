@@ -166,8 +166,8 @@ onMount(async () => {
 
   // read the voted option from local storage for the composition id read above
   // localStorage.clear();
-  // localStorage[compositionId] = "undefined";
-  console.log("Widget onMount localStorage:", localStorage);
+  localStorage[compositionId] = "undefined";
+  // console.log("Widget onMount localStorage:", localStorage);
   if(localStorage) votedOptionId = localStorage[compositionId];
   // setTimeout(() => console.log("Widget onMount votedOptionId:", votedOptionId, disabled), 100);
 
@@ -194,6 +194,38 @@ function onResize(event) {
   }, 120);
 }
 
+function getNewContent(content, factsArray) {
+  // console.log("getNewContent:", content, factsArray);
+  let nContent = [];
+  content.forEach((item, i) => {
+    // read number of votes from facts for each vote item
+    item.noVotes = 0;
+    // console.log("content item:", item);
+    factsArray.forEach((fact, j) => {
+      // console.log("fact:", item.id, fact.voteid);
+      if(item.id == fact.voteid) item.noVotes++;
+    });
+    // console.log("item:", item);
+
+    // check if this item is the one voted by the current user
+    if(item.id == votedOptionId) item.currentVote = true;
+
+    // add it to the array
+    nContent.push(item);
+  });
+
+  return nContent;
+}
+
+function updateVotedOptionId(vOptionId) {
+  votedOptionId = vOptionId;
+  localStorage[compositionId] = vOptionId;
+}
+
+/*
+  WIDGET END-USERS DATA METHODS
+*/
+
 // READ END-USERS DATA
 function readWidgetData() {
   // console.log("readWidgetData");
@@ -203,7 +235,7 @@ function readWidgetData() {
   dataStore.readAllData().then(
     (res) => {
       // read the facts
-      console.log("USERS DATA results:", res);
+      // console.log("USERS DATA results:", res);
       usersDataArray = res;
 
       // resize the main component
@@ -276,61 +308,22 @@ function deleteAllVotesForItem(contentItemId) {
   );
 }
 
-function getNewContent(content, factsArray) {
-  // console.log("getNewContent:", content, factsArray);
-  let nContent = [];
-  content.forEach((item, i) => {
-    // read number of votes from facts for each vote item
-    item.noVotes = 0;
-    // console.log("content item:", item);
-    factsArray.forEach((fact, j) => {
-      // console.log("fact:", item.id, fact.voteid);
-      if(item.id == fact.voteid) item.noVotes++;
-    });
-    // console.log("item:", item);
-
-    // check if this item is the one voted by the current user
-    if(item.id == votedOptionId) item.currentVote = true;
-
-    // add it to the array
-    nContent.push(item);
-  });
-
-  return nContent;
-}
-
-function updateVotedOptionId(vOptionId) {
-  votedOptionId = vOptionId;
-  localStorage[compositionId] = vOptionId;
-}
-
 
 /*
   WIDGET PUBLIC CONTENT METHODS for EDITOR
 */
+// function called when a content item is added
 export function addContent(item) {
   // console.log("Widget MainComponent: item that was added:", item);
 }
 
+// function called when a content item is removed
+// this example: delete all end-user data associated to the content item
 export function removeContent(item) {
   // console.log("Widget MainComponent: item that was deleted:", item.id);
 
   // delete all data(from the database) for this item that was removed
   deleteAllVotesForItem(item.id);
-}
-
-export function clearContent() {
-  // console.log("all Content was deleted!", content);
-
-  // reset votes array
-  // usersDataArray = [];
-
-  // delete all facts from the database for this composition
-  // deleteFacts();
-}
-
-export function on(eventName, handler) {
-  // console.log("Widget on:", eventName);
 }
 
 /*
@@ -344,8 +337,32 @@ export function publicFunction2(param) {
   console.log("publicFunction2", param)
 }
 
-export function isAutoscalable() {
-  return container.Autoscale.autoscale;
+// MEDIA PLAYERS only
+// to be called from outside to play media
+export function play() {
+  console.log("play function to play media!");
+  
+  // call onPlay handler when the playlist can play
+  onPlay();
+}
+
+/*
+  SPECIAL EVENT HANDLERS
+  MEDIA PLAYERS only
+  onPlay handler - dispatch the 'startPlaying' event
+*/
+function onPlay(event) {
+  // console.log("ON PLAY event:", this.audioControl._results[0].current.id);
+  // this.analyser.analyseMediaElement(event.currentAudio);
+
+  // get current playing item from the playlist
+  var current = 3; //playlist.current.id;
+
+  // dispatch the "startPlaying" event from the widget's iframe document
+  document.dispatchEvent(new CustomEvent('startPlaying', {detail:{compId: compositionId, current}}));
+
+  // send the "startPlaying" to the parent window's sdk so it pauses currentPlaying embed
+  window.parent.postMessage(JSON.stringify({t: 'startPlaying', id: window.name, d: {compId: compositionId, current}}), '*');
 }
 
 </script>
