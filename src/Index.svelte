@@ -359,10 +359,10 @@ function onPlay(event) {
   var current = 3; //playlist.current.id;
 
   // dispatch the "startPlaying" event from the widget's iframe document
-  document.dispatchEvent(new CustomEvent('startPlaying', {detail:{compId: compositionId, current}}));
+  document.dispatchEvent(new CustomEvent('startPlaying', {detail:{compositionId, current}}));
 
   // send the "startPlaying" to the parent window's sdk so it pauses currentPlaying embed
-  window.parent.postMessage(JSON.stringify({t: 'startPlaying', id: window.name, d: {compId: compositionId, current}}), '*');
+  window.parent.postMessage(JSON.stringify({t: 'startPlaying', id: window.name, d: {compositionId, current}}), '*');
 }
 
 </script>
