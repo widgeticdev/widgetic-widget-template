@@ -2,7 +2,7 @@
   "name": "widget-base-template",
   "title": "Widget Base Template",
   "description": "Widget Base Template",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/widget.js",
   "private": true,
   "scripts": {
@@ -15,20 +15,19 @@
   },
   "dependencies": {
     "@widgetic/components": "^10.0.8",
-    
     "@widgetic/workbench": "^2.2.10",
     "@widgetic/editor": "^3.9.8",
     "@widgetic/sdk": "^1.7.4",
     "@widgetic/tools": "^1.0.1",
-    
     "lowdb": "^1.0.0",
-    
     "webpack": "^4.41.4",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
-    
     "svelte": "^3.25.0",
     "svelte-loader": "^2.13.6"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.1.0"
   }
 }
