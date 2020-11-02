@@ -3,6 +3,19 @@ import MainComponent from './Index.svelte';
 
 export default class Widget extends WidgetBase {
   getComponent() {
+    // console.log("getComponent:", this);
+
+    // post message to parent window to pubish the events and mothods
+    window.parent.postMessage(JSON.stringify({
+      t: 'widgetPublicMethodsAndEvents', 
+      id: window.name, 
+      d: {
+        compositionId: this.metadata.composition.id, 
+        publicMethods: this.getPublicMethods(), 
+        publicEvents: this.getPublicEvents()
+      }
+    }), '*');
+
     return MainComponent;
   }
 
@@ -13,7 +26,7 @@ export default class Widget extends WidgetBase {
 
   // widget's api public events
   getPublicEvents() {
-    return ['event1', 'event2', 'startPlaying'];
+    return ['event1', 'event2', 'startPlaying']; // 'startPlaying' for media players only
   }
 }
 
