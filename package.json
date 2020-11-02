@@ -14,10 +14,11 @@
     "postversion": "git push"
   },
   "dependencies": {
-    "@widgetic/components": "^10.0.7",
-
+    "@widgetic/components": "^10.0.8",
+    
     "@widgetic/workbench": "^2.2.10",
     "@widgetic/editor": "^3.9.8",
+    "@widgetic/sdk": "^1.7.4",
     "@widgetic/tools": "^1.0.1",
     
     "lowdb": "^1.0.0",

@@ -4,18 +4,6 @@ import MainComponent from './Index.svelte';
 export default class Widget extends WidgetBase {
   getComponent() {
     // console.log("getComponent:", this);
-
-    // post message to parent window to pubish the events and mothods
-    window.parent.postMessage(JSON.stringify({
-      t: 'widgetPublicMethodsAndEvents', 
-      id: window.name, 
-      d: {
-        compositionId: this.metadata.composition.id, 
-        publicMethods: this.getPublicMethods(), 
-        publicEvents: this.getPublicEvents()
-      }
-    }), '*');
-
     return MainComponent;
   }
 
