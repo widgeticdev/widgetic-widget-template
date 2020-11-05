@@ -330,7 +330,7 @@ export function removeContent(item) {
   WIDGET PUBLIC(API) METHODS
 */
 export function voteItemNo(no=1) {
-  let item = content[no];
+  let item = content[no-1];
   // console.log("voteItemNo", no, item)
   if(item) saveUserVoteForItem(item.id);
 }
