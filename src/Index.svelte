@@ -329,12 +329,26 @@ export function removeContent(item) {
 /*
   WIDGET PUBLIC(API) METHODS
 */
-export function publicFunction1(param) {
-  console.log("publicFunction1", param)
+export function voteItemNo(no=1) {
+  let item = content[no];
+  // console.log("voteItemNo", no, item)
+  if(item) saveUserVoteForItem(item.id);
 }
 
-export function publicFunction2(param) {
-  console.log("publicFunction2", param)
+export function publicFunction2(param1=1, param2=2) {
+  console.log("publicFunction2", param1, param2)
+}
+
+export function publicFunction3(param) {
+  console.log("publicFunction3", param)
+}
+
+export function publicFunction4(param) {
+  console.log("publicFunction4", param)
+}
+
+export function publicFunction5(param) {
+  console.log("publicFunction5", param)
 }
 
 // MEDIA PLAYERS only

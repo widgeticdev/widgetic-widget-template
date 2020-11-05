@@ -3,13 +3,12 @@ import MainComponent from './Index.svelte';
 
 export default class Widget extends WidgetBase {
   getComponent() {
-    // console.log("getComponent:", this);
     return MainComponent;
   }
 
   // widget's api public functions
   getPublicMethods() {
-    return ['publicFunction1', 'publicFunction2', 'play'];
+    return ['voteItemNo', 'publicFunction1', 'publicFunction2', 'publicFunction3', 'publicFunction4', 'play'];
   }
 
   // widget's api public events
