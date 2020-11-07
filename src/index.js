@@ -13,7 +13,7 @@ export default class Widget extends WidgetBase {
 
   // widget's api public events
   getPublicEvents() {
-    return ['event1', 'event2', 'startPlaying']; // 'startPlaying' for media players only
+    return ['didVote', 'event1', 'event2', 'startPlaying']; // 'startPlaying' for media players only
   }
 }
 

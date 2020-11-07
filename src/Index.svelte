@@ -256,6 +256,8 @@ function readWidgetData() {
 // here you pass the property value(contentItemId)
 function saveUserVoteForItem(contentItemId) {
   // console.log("Save vote for contentItemId:", contentItemId);
+
+  document.dispatchEvent(new CustomEvent('didVote', {detail:{compositionId, contentItemId}}));
   
   // show loader
   loading = true;
@@ -335,8 +337,10 @@ export function voteItemNo(no=1) {
   if(item) saveUserVoteForItem(item.id);
 }
 
-export function publicFunction2(param1=1, param2=2) {
-  console.log("publicFunction2", param1, param2)
+export function publicFunction2(param1=1, param2) {
+  console.log("publicFunction2 and params:", param1, param2);
+
+  document.dispatchEvent(new CustomEvent('event1', {detail:{compositionId}}));
 }
 
 export function publicFunction3(param) {
