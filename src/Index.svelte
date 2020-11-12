@@ -180,7 +180,7 @@ onMount(async () => {
 
   }, 100);
 
-  
+
   // read current collected end-users data
   // - needed for read/write widgets that must collect data from end-user
   // - remove it for read only widgets
@@ -347,6 +347,7 @@ export function voteItemNo(no=1) {
 
   // call the function to do the vote
   if(item) saveUserVoteForItem(item.id);
+  let contentItemId = item ? item.id : "";
 
   // dispatch the event
   document.dispatchEvent(new CustomEvent('didVote', {detail:{compositionId, contentItemId}}));
@@ -373,7 +374,7 @@ export function publicFunction3(param1, param2, param3) {
   document.dispatchEvent(new CustomEvent('event3', {detail:{compositionId}}));
 }
 
-// MEDIA PLAYERS only
+/* MEDIA PLAYERS PUBLIC FUNCTIONS */
 // to be called from outside to play media
 export function play() {
   console.log("play function to play media!");
@@ -381,13 +382,14 @@ export function play() {
   // call playlist play function
   // this.playlist.play();
 
-  // send the "startPlaying" message to Widgetic SDK
+  // send the "startPlaying" message to let Widgetic SDK that it did start
   container.Events.startPlaying();
 }
 
 // to be called from outside to pause media
 export function pause() {
   console.log("pause function to play media!");
+
   // pause the playlist
   // this.playlist.pause();
 }
