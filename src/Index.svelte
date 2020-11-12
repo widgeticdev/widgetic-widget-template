@@ -165,12 +165,22 @@ onMount(async () => {
   // console.log("widget onMount loadedCompositionId from meta:", compositionId);
 
   // read the voted option from local storage for the composition id read above
-  // localStorage.clear();
-  localStorage[compositionId] = "undefined";
-  // console.log("Widget onMount localStorage:", localStorage);
+  // localStorage[compositionId] = "undefined"; // uncommment this to restart vote
   if(localStorage) votedOptionId = localStorage[compositionId];
   // setTimeout(() => console.log("Widget onMount votedOptionId:", votedOptionId, disabled), 100);
 
+
+  // timeout the dispatch of the 'init' event
+  setTimeout(() => {
+
+
+  // dispatch the 'init' event
+  document.dispatchEvent(new CustomEvent('init', {detail:{compositionId}}));
+
+
+  }, 100);
+
+  
   // read current collected end-users data
   // - needed for read/write widgets that must collect data from end-user
   // - remove it for read only widgets
@@ -256,8 +266,6 @@ function readWidgetData() {
 // here you pass the property value(contentItemId)
 function saveUserVoteForItem(contentItemId) {
   // console.log("Save vote for contentItemId:", contentItemId);
-
-  document.dispatchEvent(new CustomEvent('didVote', {detail:{compositionId, contentItemId}}));
   
   // show loader
   loading = true;
@@ -332,55 +340,56 @@ export function removeContent(item) {
   WIDGET PUBLIC(API) METHODS
 */
 export function voteItemNo(no=1) {
+
+  // get the item to vote for
   let item = content[no-1];
   // console.log("voteItemNo", no, item)
+
+  // call the function to do the vote
   if(item) saveUserVoteForItem(item.id);
+
+  // dispatch the event
+  document.dispatchEvent(new CustomEvent('didVote', {detail:{compositionId, contentItemId}}));
 }
 
-export function publicFunction2(param1=1, param2) {
-  console.log("publicFunction2 and params:", param1, param2);
+export function publicFunction1(param) {
+  console.log("publicFunction1", param);
 
+  // dispatch the event
   document.dispatchEvent(new CustomEvent('event1', {detail:{compositionId}}));
 }
 
-export function publicFunction3(param) {
-  console.log("publicFunction3", param)
+export function publicFunction2(param1, param2) {
+  console.log("publicFunction2 and params:", param1, param2);
+
+  // dispatch the event
+  document.dispatchEvent(new CustomEvent('event2', {detail:{compositionId}}));
 }
 
-export function publicFunction4(param) {
-  console.log("publicFunction4", param)
-}
+export function publicFunction3(param1, param2, param3) {
+  console.log("publicFunction3", param1, param2, param3);
 
-export function publicFunction5(param) {
-  console.log("publicFunction5", param)
+  // dispatch the event
+  document.dispatchEvent(new CustomEvent('event3', {detail:{compositionId}}));
 }
 
 // MEDIA PLAYERS only
 // to be called from outside to play media
 export function play() {
   console.log("play function to play media!");
-  
-  // call onPlay handler when the playlist can play
-  onPlay();
+
+  // call playlist play function
+  // this.playlist.play();
+
+  // send the "startPlaying" message to Widgetic SDK
+  container.Events.startPlaying();
 }
 
-/*
-  SPECIAL EVENT HANDLERS
-  MEDIA PLAYERS only
-  onPlay handler - dispatch the 'startPlaying' event
-*/
-function onPlay(event) {
-  // console.log("ON PLAY event:", this.audioControl._results[0].current.id);
-  // this.analyser.analyseMediaElement(event.currentAudio);
-
-  // get current playing item from the playlist
-  var current = 3; //playlist.current.id;
-
-  // dispatch the "startPlaying" event from the widget's iframe document
-  document.dispatchEvent(new CustomEvent('startPlaying', {detail:{compositionId, current}}));
-
-  // send the "startPlaying" to the parent window's sdk so it pauses currentPlaying embed
-  window.parent.postMessage(JSON.stringify({t: 'startPlaying', id: window.name, d: {compositionId, current}}), '*');
+// to be called from outside to pause media
+export function pause() {
+  console.log("pause function to play media!");
+  // pause the playlist
+  // this.playlist.pause();
 }
 
 </script>
