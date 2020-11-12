@@ -8,12 +8,12 @@ export default class Widget extends WidgetBase {
 
   // widget's api public functions
   getPublicMethods() {
-    return ['voteItemNo', 'publicFunction1', 'publicFunction2', 'publicFunction3', 'publicFunction4', 'play'];
+    return ['voteItemNo', 'publicFunction1', 'publicFunction2', 'publicFunction3', 'play', 'pause']; // 'play/pause' for media players only
   }
 
   // widget's api public events
   getPublicEvents() {
-    return ['didVote', 'event1', 'event2', 'startPlaying']; // 'startPlaying' for media players only
+    return ['didVote', 'init', 'event1', 'event2'];
   }
 }
 
