@@ -337,44 +337,42 @@ export function removeContent(item) {
 }
 
 /*
-  WIDGET PUBLIC(API) METHODS
+  WIDGET PUBLIC API METHODS
 */
+
+/**
+ * makes a vote on vote option number @param
+ * @param no
+ * public-api
+ */
 export function voteItemNo(no=1) {
 
   // get the item to vote for
   let item = content[no-1];
-  // console.log("voteItemNo", no, item)
+
+  // console.log("widget onItemClick voted:", item);
 
   // call the function to do the vote
   if(item) saveUserVoteForItem(item.id);
   let contentItemId = item ? item.id : "";
 
   // dispatch the event
-  document.dispatchEvent(new CustomEvent('didVote', {detail:{compositionId, contentItemId}}));
+  container.Events.dispatch('didVote', {voteId: contentItemId});
 }
 
-export function publicFunction1(param) {
-  console.log("publicFunction1", param);
+export function methodExample(param) {
+  // console.log("methodExample!");
 
-  // dispatch the event
-  document.dispatchEvent(new CustomEvent('event1', {detail:{compositionId}}));
+  // dispatch the public event
+  container.Events.dispatch('evExample', {compositionId});
 }
 
-export function publicFunction2(param1, param2) {
-  console.log("publicFunction2 and params:", param1, param2);
 
-  // dispatch the event
-  document.dispatchEvent(new CustomEvent('event2', {detail:{compositionId}}));
-}
+/* 
+MEDIA PLAYERS PUBLIC METHODS 
+Note: remove them if your widget is not a media player
+*/
 
-export function publicFunction3(param1, param2, param3) {
-  console.log("publicFunction3", param1, param2, param3);
-
-  // dispatch the event
-  document.dispatchEvent(new CustomEvent('event3', {detail:{compositionId}}));
-}
-
-/* MEDIA PLAYERS PUBLIC FUNCTIONS */
 // to be called from outside to play media
 export function play() {
   console.log("play function to play media!");
@@ -382,7 +380,12 @@ export function play() {
   // call playlist play function
   // this.playlist.play();
 
-  // send the "startPlaying" message to let Widgetic SDK that it did start
+  // dispatch the public event
+  container.Events.dispatch('startPlaying', {trackNo: 3});
+
+  // for COMPOSABLE MEDIA PLAYERS: to pause each other when starting
+  // send the "startPlaying" message to Widgetic SDK to automatically pause other players
+  // Note: remove this if you don't want your player to be paused
   container.Events.startPlaying();
 }
 
@@ -392,6 +395,9 @@ export function pause() {
 
   // pause the playlist
   // this.playlist.pause();
+
+  // dispatch the public event
+  container.Events.dispatch('stopPlaying', {trackNo: 3});
 }
 
 </script>

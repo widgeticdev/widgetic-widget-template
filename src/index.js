@@ -2,19 +2,22 @@ import WidgetBase from '@widgetic/components/widget';
 import MainComponent from './Index.svelte';
 
 export default class Widget extends WidgetBase {
+
+  // widget's public api methods
+  getPublicMethods() {
+    return ['methodExample', 'voteItemNo'];
+  }
+
+  // widget's public api events
+  getPublicEvents() {
+    return ['evExample', 'didVote'];
+  }
+
+  
+  
+  // getter for Main Svelte Component
   getComponent() {
     return MainComponent;
-  }
-
-  // widget's api public functions
-  getPublicMethods() {
-    return ['voteItemNo', 'publicFunction1', 'publicFunction2', 'play', 'pause']; 
-    // 'play' and 'pause' - for media players only
-  }
-
-  // widget's api public events
-  getPublicEvents() {
-    return ['init', 'didVote', 'event1', 'event2'];
   }
 }
 
