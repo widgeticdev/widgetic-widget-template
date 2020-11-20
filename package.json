@@ -2,7 +2,7 @@
   "name": "widget-base-template",
   "title": "Widget Base Template",
   "description": "Widget Base Template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/widget.js",
   "private": true,
   "scripts": {
