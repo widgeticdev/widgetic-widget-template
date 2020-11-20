@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@widgetic/components": "^10.0.9",
-    "@widgetic/workbench": "^2.2.11",
+    "@widgetic/workbench": "^2.2.12",
     "@widgetic/tools": "^1.0.1",
     "lowdb": "^1.0.0",
     "webpack": "^4.41.4",
